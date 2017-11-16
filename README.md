@@ -16,3 +16,9 @@ SJSU Spring 2017
 - CS166: Information Security (A) [N/A]
 - MATH143C: Numerical Analysis and Scientific Computing (A)
 - MATH178: Mathematical Modeling (A) [N/A]
+
+SJSU Fall 2016
+- CS147: Computer Architecture (A)
+- CS151: Object-Oriented Design (A)
+- CS157A: Introduction to Database Management Systems (B) [N/A]
+- CS185C: Social Networks (A)
