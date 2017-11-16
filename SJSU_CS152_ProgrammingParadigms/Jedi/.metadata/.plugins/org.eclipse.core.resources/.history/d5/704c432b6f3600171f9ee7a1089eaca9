@@ -1,0 +1,9 @@
+package expressions
+
+import values._
+
+case class Assignment(variable: Identifier, update: Expression) extends SpecialForm {
+  def execute(env: Environment): Value = {
+    ???
+  }
+}

@@ -1,0 +1,46 @@
+package system
+
+import expressions._
+import values._
+
+object alu {
+
+  // HARD CODE operators
+  
+  def execute(operator: Identifier, args: List[Value]): Value = {
+    operator.name match {
+      case "add" => add(args)
+      case "equal" => equal(args)
+      // etc.
+      case _ => throw new UndefinedException(operator)
+    }
+  }
+
+  private def add(args: List[Value]): Number = {
+    var nums = args.filter(_.isInstanceOf[Number])
+    if (nums.length != args.length)
+      throw new TypeException("Inputs to add must be numbers")
+    val nums2 = nums.map(_.asInstanceOf[Number])
+    nums2.reduce(_ + _)
+  }
+
+  private def lessThan(args: List[Value]): Boole = {
+    //if (args.length != 2) throw new SyntaxException("");
+    var nums = args.filter(_.isInstanceOf[Number])
+    if (nums.length != args.length) throw new TypeException("Inputs must be numbers")
+    val nums2 = nums.map(_.asInstanceOf[Number])
+    nums2(0) < nums2(1)
+  }
+
+  private def equal(args: List[Value]): Boole = {
+    var nums = args.filter(_.isInstanceOf[Number])
+    if (nums.length != args.length) throw new TypeException("Inputs must be numbers")
+    val nums2 = nums.map(_.asInstanceOf[Number])
+    var result = Boole.TRUE
+    for (i <- 0 until nums2.length - 1)
+      if (result.value && nums2(i) != nums2(i + 1)) result.!
+    result
+  }
+
+  // etc.
+}

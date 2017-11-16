@@ -1,0 +1,10 @@
+package expressions
+
+import values._
+
+class Iteration(condition: Expression, body: Expression) extends SpecialForm {
+  def execute(env: Environment): Value = {
+    
+    ???
+  }
+}

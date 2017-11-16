@@ -1,0 +1,100 @@
+package system
+
+import scala.util.parsing.combinator._
+import expressions._
+import values._
+
+class EwokParsers extends RegexParsers {
+
+  def expression: Parser[Expression] = declaration | conditional | disjunction | failure("Invalid expression")
+
+  // def declaration, conditional, dusjunction, and other parsers
+  def declaration: Parser[Declaration] = "def" ~ identifier ~ "=" ~ expression ^^
+    {
+      case "def" ~ id ~ "=" ~ exp => Declaration(id, exp)
+    }
+
+  def conditional: Parser[Conditional] = "if" ~ "(" ~ expression ~ ")" ~ expression ~ opt("else" ~ expression) ^^
+    {
+      case "if" ~ "(" ~ exp ~ ")" ~ then ~ None => Conditional(exp, then, null)
+      case "if" ~ "(" ~ exp ~ ")" ~ then ~ Some("else" ~ otherwise) => Conditional(exp, then, otherwise)
+    }
+
+  def disjunction: Parser[Disjunction] = conjunction ~ rep("||" ~> conjunction) ^^ // ~> drops the ors
+    {
+      case con ~ Nil => Disjunction(con :: Nil); // a :: [b,c,d] = [a,b,c,d] "cons operator"
+      case con ~ cons => Disjunction(con :: cons);
+    }
+
+  def conjunction: Parser[Conjunction] = equality ~ rep("&&" ~> equality) ^^
+    {
+      case eq ~ Nil => Conjunction(eq :: Nil)
+      case eq ~ eqs => Conjunction(eq :: eqs)
+    }
+
+  def equality: Parser[Expression] = inequality ~ rep("==" ~> inequality) ^^
+    {
+      case in ~ Nil => in
+      case in ~ ins => FunCall(Identifier("equal"), in :: ins)
+    }
+
+  def inequality: Parser[Expression] = sum ~ opt("<" ~ sum) ^^
+    {
+      case sum ~ None => sum
+      case sum ~ Some("<" ~ sumo) => FunCall(Identifier("lessThan"), List(sum, sumo))
+    }
+
+  def sum: Parser[Expression] =
+    product ~ rep(("+" | "-") ~ product ^^ { case "+" ~ s => s case "-" ~ s => negate(s) }) ^^ {
+      case p ~ Nil => p
+      case p ~ rest => FunCall(Identifier(FunCall.ADD), p :: rest)
+    }
+
+  def product: Parser[Expression] = "" ^^
+    {
+      case _ => null
+    }
+
+  def funcall: Parser[Expression] = term ~ opt(operands) ^^
+    {
+      case t ~ None => t
+      case t ~ Some(ops) => FunCall(t, ops)
+    }
+
+  def term: Parser[Identifier] = "" ^^
+    {
+      case _ => Identifier("1")
+    }
+
+  def operands: Parser[List[Expression]] = "(" ~ opt(expression ~ rep("," ~> expression)) ~ ")" ^^ {
+    case "(" ~ None ~ ")" => List()
+    case "(" ~ Some(exp ~ Nil) ~ ")" => exp :: Nil
+    case "(" ~ Some(exp ~ exps) ~ ")" => exp :: exps
+  }
+
+  def negate(exp: Expression): Expression = {
+    val sub = Identifier("sub")
+    val zero = Number(0)
+    FunCall(sub, List(zero, exp))
+  }
+
+  //IDENTIFIER ::= [a-zA-Z][0-9a-zA-Z]*
+  def identifier: Parser[Identifier] = """[a-zA-Z][a-zA-Z0-9]*""".r ^^
+    {
+      case id => Identifier(id);
+    }
+
+  //BOOLE ::= true | false
+  def boole: Parser[Boole] = "true|false".r ^^
+    {
+      case "true" => Boole.TRUE
+      case "false" => Boole.FALSE
+    }
+
+  //NUMBER ::= (\+|-)?[0-9]+(\.[0-9]+)?
+  def number: Parser[Number] = opt("+" | "-") ~ """[0-9]""".r ~ rep("""[0-9]""".r) ~ opt("""\.""".r ~ """[0-9]""".r ~ rep("""[0-9]""".r)) ^^
+    {
+      case _ => Number(1)
+    }
+
+}

@@ -1,0 +1,5 @@
+package expressions
+
+class Iteration(condition: Expression, body: Expression) extends SpecialForm {
+  
+}

@@ -1,0 +1,3 @@
+package values
+
+case class Variable(val content: Value) extends Value
