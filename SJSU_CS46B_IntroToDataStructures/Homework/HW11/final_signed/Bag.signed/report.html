@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Version" content="0.3"/>
+<meta name="Submission" content="15110517258742962869937898640"/>
+<meta name="Problem" content="hw11b"/>
+<meta name="Level" content="2"/>
+<meta name="Time" content="2015-11-05T17:25:03Z"/>
+<meta name="ID" content="Bag"/>
+<meta name="User" content="15082516192598746027217998875"/>
+<style type="text/css">
+.header {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header">JUnit: BagTest.java</p>
+<pre class="output">Pass: 3
+Fail: 0</pre>
+<span class="pass">pass</span><p class="header">JUnit: BagTest2.java</p>
+<pre class="output">Pass: 9
+Fail: 0</pre>
+<span class="pass">pass</span><p class="header">CheckStyle</p>
+<p class="caption">Bag.java:</p>
+<pre class="output">Ok</pre>
+<span class="pass">pass</span><p class="header">Student files</p>
+<p class="caption">Bag.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+<span class="linenumber"> 24</span>
+<span class="linenumber"> 25</span>
+<span class="linenumber"> 26</span>
+<span class="linenumber"> 27</span>
+<span class="linenumber"> 28</span>
+<span class="linenumber"> 29</span>
+<span class="linenumber"> 30</span>
+<span class="linenumber"> 31</span>
+<span class="linenumber"> 32</span>
+<span class="linenumber"> 33</span>
+<span class="linenumber"> 34</span>
+<span class="linenumber"> 35</span>
+<span class="linenumber"> 36</span>
+<span class="linenumber"> 37</span>
+<span class="linenumber"> 38</span>
+<span class="linenumber"> 39</span>
+<span class="linenumber"> 40</span>
+<span class="linenumber"> 41</span>
+<span class="linenumber"> 42</span>
+<span class="linenumber"> 43</span>
+<span class="linenumber"> 44</span>
+<span class="linenumber"> 45</span>
+<span class="linenumber"> 46</span>
+<span class="linenumber"> 47</span>
+<span class="linenumber"> 48</span>
+<span class="linenumber"> 49</span>
+<span class="linenumber"> 50</span>
+<span class="linenumber"> 51</span>
+<span class="linenumber"> 52</span>
+<span class="linenumber"> 53</span>
+<span class="linenumber"> 54</span>
+<span class="linenumber"> 55</span>
+<span class="linenumber"> 56</span>
+<span class="linenumber"> 57</span>
+<span class="linenumber"> 58</span>
+<span class="linenumber"> 59</span>
+<span class="linenumber"> 60</span>
+<span class="linenumber"> 61</span>
+<span class="linenumber"> 62</span>
+<span class="linenumber"> 63</span>
+<span class="linenumber"> 64</span>
+<span class="linenumber"> 65</span>
+<span class="linenumber"> 66</span>
+<span class="linenumber"> 67</span>
+<span class="linenumber"> 68</span>
+<span class="linenumber"> 69</span>
+<span class="linenumber"> 70</span>
+<span class="linenumber"> 71</span>
+<span class="linenumber"> 72</span>
+<span class="linenumber"> 73</span>
+<span class="linenumber"> 74</span>
+<span class="linenumber"> 75</span>
+<span class="linenumber"> 76</span>
+<span class="linenumber"> 77</span>
+<span class="linenumber"> 78</span>
+<span class="linenumber"> 79</span>
+<span class="linenumber"> 80</span>
+<span class="linenumber"> 81</span>
+<span class="linenumber"> 82</span>
+<span class="linenumber"> 83</span>
+<span class="linenumber"> 84</span>
+<span class="linenumber"> 85</span>
+<span class="linenumber"> 86</span>
+<span class="linenumber"> 87</span>
+<span class="linenumber"> 88</span>
+<span class="linenumber"> 89</span>
+<span class="linenumber"> 90</span>
+<span class="linenumber"> 91</span>
+<span class="linenumber"> 92</span>
+<span class="linenumber"> 93</span>
+<span class="linenumber"> 94</span>
+<span class="linenumber"> 95</span>
+<span class="linenumber"> 96</span>
+<span class="linenumber"> 97</span>
+<span class="linenumber"> 98</span>
+<span class="linenumber"> 99</span>
+<span class="linenumber">100</span>
+<span class="linenumber">101</span>
+<span class="linenumber">102</span>
+<span class="linenumber">103</span>
+<span class="linenumber">104</span>
+<span class="linenumber">105</span>
+<span class="linenumber">106</span>
+<span class="linenumber">107</span>
+<span class="linenumber">108</span>
+<span class="linenumber">109</span>
+<span class="linenumber">110</span>
+<span class="linenumber">111</span>
+<span class="linenumber">112</span>
+<span class="linenumber">113</span>
+<span class="linenumber">114</span>
+<span class="linenumber">115</span>
+<span class="linenumber">116</span>
+<span class="linenumber">117</span>
+<span class="linenumber">118</span>
+<span class="linenumber">119</span>
+<span class="linenumber">120</span>
+<span class="linenumber">121</span>
+<span class="linenumber">122</span>
+<span class="linenumber">123</span>
+</pre></td><td><pre>
+/**
+ * This list represents a bag containing multiple objects and the amount per object
+ */
+public class Bag
+{
+   Node first;
+
+   /**
+    * A Node with data and a count
+    */
+   class Node
+   {
+      Object data;
+      int count;
+      Node next;
+   }
+
+   /**
+    * Constructs an empty bag
+    */
+   public Bag()
+   {
+      first = null;
+   }
+
+   /**
+    * Adds an object to bag
+    * @param obj the object
+    */
+   public void add(Object obj)
+   {
+	   if (contains(obj) &gt; 0) {
+		   Node node = new Node();
+		   node = first;
+		   boolean found = false;
+		   while (!found) {
+			   if (node.data.equals(obj)) {
+				   node.count ++;
+				   found = true;
+			   } else {
+				   node = node.next;
+			   }
+		   }
+	   } else {
+		  Node newNode = new Node();
+		  newNode.data = obj;
+		  newNode.next = first;
+		  newNode.count = 1;
+		  first = newNode;
+	   }
+   }
+
+   /**
+    * Removes an object from the bag
+    * @param obj the object
+    */
+   public void remove(Object obj)
+   {
+	   if (contains(obj) &gt; 0) {
+		   Node node = new Node();
+		   node = first;
+		   Node previous = new Node();
+		   boolean found = false;
+		   while (!found) {
+			   if (node.data.equals(obj)) {
+				   node.count --;
+				   found = true;
+				   if (node.count == 0) {
+					   //Removes the node
+				       previous.next = node.next;
+				   }
+			   } else {
+				   previous = node;
+				   node = node.next;
+			   }
+		   }
+	   }
+   }
+
+   /**
+    * Gets the amount of times the object is in the bag
+    * @param obj the object
+    * @return the count of the object
+    */
+   public int contains(Object obj)
+   {
+	   Node node = new Node();
+	   node = first;
+	   while (node != null) {
+		   if (node.data.equals(obj)) {
+			   return node.count;
+		   }
+		   node = node.next;
+	   }
+	   return 0;
+   }
+
+   /**
+    * Returns the bag as a string
+    * @return the bag as a string
+    */
+   public String toString()
+   {
+      String result = "[";
+      Node node = new Node();
+      node = first;
+      boolean first = true;
+      while (node != null) {
+    	  for (int i = 1; i &lt;= node.count; i ++) {
+    		  if (first) {
+    			  result += node.data;
+        		  first = false;
+        	  } else {
+        		  result += ", " + node.data; 
+        	  }
+    	  }
+    	  
+    	  node = node.next;
+      }
+      return result + "]";
+   }
+}
+</pre></td></tr></table>
+<p class="header">Provided files</p>
+<p class="caption">BagTest.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+<span class="linenumber"> 24</span>
+<span class="linenumber"> 25</span>
+<span class="linenumber"> 26</span>
+<span class="linenumber"> 27</span>
+<span class="linenumber"> 28</span>
+<span class="linenumber"> 29</span>
+<span class="linenumber"> 30</span>
+<span class="linenumber"> 31</span>
+<span class="linenumber"> 32</span>
+<span class="linenumber"> 33</span>
+<span class="linenumber"> 34</span>
+<span class="linenumber"> 35</span>
+<span class="linenumber"> 36</span>
+<span class="linenumber"> 37</span>
+<span class="linenumber"> 38</span>
+<span class="linenumber"> 39</span>
+<span class="linenumber"> 40</span>
+<span class="linenumber"> 41</span>
+<span class="linenumber"> 42</span>
+<span class="linenumber"> 43</span>
+<span class="linenumber"> 44</span>
+<span class="linenumber"> 45</span>
+<span class="linenumber"> 46</span>
+<span class="linenumber"> 47</span>
+</pre></td><td><pre>import org.junit.*;
+import static org.junit.Assert.*;
+
+public class BagTest
+{
+   @Test public void test1()
+   {
+      Bag bag = new Bag();
+      bag.add("apple");
+      assertEquals(1, bag.contains("apple"));
+      assertEquals(0, bag.contains("tomato"));
+   }
+
+   @Test public void test2()
+   {
+      Bag bag = new Bag();
+      bag.add("apple");
+      bag.add("pear");
+      bag.add("apple");
+      assertEquals(2, bag.contains("apple"));
+      assertEquals(1, bag.contains("pear"));
+      assertEquals(0, bag.contains("tomato"));
+   }
+
+   @Test public void test3()
+   {
+      Bag bag = new Bag();
+      bag.add("tomato");
+      bag.add("apple");
+      bag.add("pear");
+      bag.add("apple");
+      bag.add("apple");
+      bag.add("pear");
+      Bag.Node n = bag.first;
+      assertEquals("pear", n.data);
+      assertEquals(2, n.count);
+      assertNotNull(n.next);
+      n = n.next;
+      assertEquals("apple", n.data);
+      assertEquals(3, n.count);
+      assertNotNull(n.next);
+      n = n.next;
+      assertEquals("tomato", n.data);
+      assertEquals(1, n.count);
+      assertNull(n.next);
+   }
+}
+</pre></td></tr></table>
+<p class="caption">BagTest2.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+<span class="linenumber"> 24</span>
+<span class="linenumber"> 25</span>
+<span class="linenumber"> 26</span>
+<span class="linenumber"> 27</span>
+<span class="linenumber"> 28</span>
+<span class="linenumber"> 29</span>
+<span class="linenumber"> 30</span>
+<span class="linenumber"> 31</span>
+<span class="linenumber"> 32</span>
+<span class="linenumber"> 33</span>
+<span class="linenumber"> 34</span>
+<span class="linenumber"> 35</span>
+<span class="linenumber"> 36</span>
+<span class="linenumber"> 37</span>
+<span class="linenumber"> 38</span>
+<span class="linenumber"> 39</span>
+<span class="linenumber"> 40</span>
+<span class="linenumber"> 41</span>
+<span class="linenumber"> 42</span>
+<span class="linenumber"> 43</span>
+<span class="linenumber"> 44</span>
+<span class="linenumber"> 45</span>
+<span class="linenumber"> 46</span>
+<span class="linenumber"> 47</span>
+<span class="linenumber"> 48</span>
+<span class="linenumber"> 49</span>
+<span class="linenumber"> 50</span>
+<span class="linenumber"> 51</span>
+<span class="linenumber"> 52</span>
+<span class="linenumber"> 53</span>
+<span class="linenumber"> 54</span>
+<span class="linenumber"> 55</span>
+<span class="linenumber"> 56</span>
+<span class="linenumber"> 57</span>
+<span class="linenumber"> 58</span>
+<span class="linenumber"> 59</span>
+<span class="linenumber"> 60</span>
+<span class="linenumber"> 61</span>
+<span class="linenumber"> 62</span>
+<span class="linenumber"> 63</span>
+<span class="linenumber"> 64</span>
+<span class="linenumber"> 65</span>
+<span class="linenumber"> 66</span>
+<span class="linenumber"> 67</span>
+<span class="linenumber"> 68</span>
+<span class="linenumber"> 69</span>
+<span class="linenumber"> 70</span>
+<span class="linenumber"> 71</span>
+<span class="linenumber"> 72</span>
+<span class="linenumber"> 73</span>
+<span class="linenumber"> 74</span>
+<span class="linenumber"> 75</span>
+<span class="linenumber"> 76</span>
+<span class="linenumber"> 77</span>
+<span class="linenumber"> 78</span>
+<span class="linenumber"> 79</span>
+<span class="linenumber"> 80</span>
+<span class="linenumber"> 81</span>
+<span class="linenumber"> 82</span>
+<span class="linenumber"> 83</span>
+<span class="linenumber"> 84</span>
+<span class="linenumber"> 85</span>
+<span class="linenumber"> 86</span>
+<span class="linenumber"> 87</span>
+<span class="linenumber"> 88</span>
+<span class="linenumber"> 89</span>
+<span class="linenumber"> 90</span>
+<span class="linenumber"> 91</span>
+<span class="linenumber"> 92</span>
+<span class="linenumber"> 93</span>
+<span class="linenumber"> 94</span>
+<span class="linenumber"> 95</span>
+<span class="linenumber"> 96</span>
+<span class="linenumber"> 97</span>
+<span class="linenumber"> 98</span>
+<span class="linenumber"> 99</span>
+<span class="linenumber">100</span>
+<span class="linenumber">101</span>
+<span class="linenumber">102</span>
+<span class="linenumber">103</span>
+<span class="linenumber">104</span>
+</pre></td><td><pre>import org.junit.*;
+import static org.junit.Assert.*;
+
+public class BagTest2
+{
+   @Test public void test1()
+   {
+      Bag bag = new Bag();
+      bag.add("apple");
+      bag.remove("apple");
+      assertEquals(0, bag.contains("apple"));
+   }
+
+   @Test public void test2()
+   {
+      Bag bag = new Bag();
+      bag.add("apple");
+      bag.add("apple");
+      bag.remove("apple");
+      assertEquals(1, bag.contains("apple"));
+   }
+
+   @Test public void test3()
+   {
+      Bag bag = new Bag();
+      bag.add("apple");
+      bag.add("apple");
+      bag.add("pear");
+      bag.remove("apple");
+      assertEquals(1, bag.contains("apple"));
+      assertEquals(1, bag.contains("pear"));
+   }
+
+   @Test public void test4()
+   {
+      Bag bag = new Bag();
+      bag.add("apple");
+      bag.add("pear");
+      bag.remove("apple");
+      bag.remove("apple");
+      assertEquals(0, bag.contains("apple"));
+      assertEquals(1, bag.contains("pear"));
+   }
+
+   @Test public void test5()
+   {
+      Bag bag = new Bag();
+      bag.add("apple");
+      assertEquals("[apple]", bag.toString());
+   }
+
+   @Test public void test6()
+   {
+      Bag bag = new Bag();
+      bag.add("apple");
+      bag.add("pear");
+      assertEquals("[pear, apple]", bag.toString());
+   }
+
+   @Test public void test7()
+   {
+      Bag bag = new Bag();
+      bag.add("tomato");
+      bag.add("apple");
+      bag.add("pear");
+      bag.add("apple");
+      bag.add("apple");
+      bag.add("pear");
+      assertEquals("[pear, pear, apple, apple, apple, tomato]", bag.toString());
+   }
+
+   @Test public void test8()
+   {
+      Bag bag = new Bag();
+      assertEquals("[]", bag.toString());
+   }
+
+   @Test public void test9()
+   {
+      Bag bag = new Bag();
+      bag.add("apple");
+      bag.add("banana");
+      bag.add("banana");
+      bag.add("pear");
+      bag.add("apple");
+      bag.add("apple");
+      bag.add("pear");
+      bag.add("tomato");
+      bag.remove("banana");
+      bag.remove("banana");
+      Bag.Node n = bag.first;
+      assertEquals("tomato", n.data);
+      assertEquals(1, n.count);
+      assertNotNull(n.next);
+      n = n.next;
+      assertEquals("pear", n.data);
+      assertEquals(2, n.count);
+      assertNotNull(n.next);
+      n = n.next;
+      assertEquals("apple", n.data);
+      assertEquals(3, n.count);
+      assertNull(n.next);
+   }
+}
+</pre></td></tr></table>
+<p class="header">Score</p>
+<p class="score">15/15</p>
+<p class="download"><a href="Bag.signed.zip">Download</a></p>
+<div class="footnotes"><div class="footnote">2015-11-05T17:25:03Z</div>
+</div>
+</body></html>

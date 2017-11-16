@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=anArray
+comment0.target=java.util.ArrayList\ copyArray(int[])
+comment0.text=\n\ \ \ \ This\ method\ goes\ through\ the\ given\ array\ of\ integers,\n\ \ \ \ yielding\ a\ new\ ArrayList\ from\ the\ array\ that\ contains\ the\n\ \ \ \ elements\ of\ the\ original\ array,\ with\ duplicates\ removed.\n\ \ \ \ @param\ theArray,\ an\ array\ of\ integer\n\ \ \ \ @return\ the\ new\ ArrayList\n\n
+comment1.params=anArrayList
+comment1.target=int[]\ copyArrayList(java.util.ArrayList)
+comment1.text=\n\ \ \ \ This\ method\ goes\ through\ the\ given\ array\ list\ of\ integers,\n\ \ \ \ yielding\ a\ new\ array\ from\ the\ array\ list\ that\ contains\ the\n\ \ \ \ elements\ of\ the\ original\ array\ list,\ with\ duplicates\ removed.\n\ \ \ \ @param\ theArrayList,\ an\ array\ list\ of\ integer\n\ \ \ \ @return\ the\ new\ array\n\n
+numComments=2

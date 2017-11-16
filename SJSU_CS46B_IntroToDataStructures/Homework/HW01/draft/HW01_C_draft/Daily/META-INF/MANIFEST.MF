@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: 1.8.0_31 (Oracle Corporation)
+
+Name: report.html
+SHA-256-Digest: ZL6qbLvy0UlLEHd30C0DUZSYfhKuYIOVsKT9O9BcGOU=
+
+Name: Daily.java
+SHA-256-Digest: fN3h1pc+gFzAlOMtYDVLXIA1DjgxarSEPmRW9bRQvdY=
+

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: 1.8.0_31 (Oracle Corporation)
+
+Name: report.html
+SHA-256-Digest: 6kz8bcPnP5Xog5iFv6WR44SNV7uUmprPdkjhkzxSdaI=
+
+Name: Bag.java
+SHA-256-Digest: FPMFGHPMk3hcwLpNz9Io3MxN471oA2/jWzND/BiFSoQ=
+

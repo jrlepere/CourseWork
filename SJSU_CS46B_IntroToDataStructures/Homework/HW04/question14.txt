@@ -1,0 +1,15 @@
+What is the correct (i.e., not wrong) answer to this question?
+A. This one: for sure
+B. Maybe this ANSWER: After all, why not?
+C. Possibly this one?
+D. Must be this one!
+ANSWER: D
+
+Which LMS (i.e., learning management system) has the most quiz import formats?
+A) Moodle
+B) ATutor
+C) Claroline
+D) Blackboard
+E) WebCT
+F) Ilias
+ANSWER: A

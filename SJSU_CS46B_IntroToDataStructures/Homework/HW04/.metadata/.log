@@ -1,0 +1,3 @@
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-09-14 10:06:25.817
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.epp.internal.logging.aeri.ui.log.ProblemsDatabaseUpdateJob

@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Version" content="0.3"/>
+<meta name="Submission" content="15082517416594661597187337218"/>
+<meta name="Problem" content="hw1a"/>
+<meta name="Level" content="1"/>
+<meta name="Time" content="2015-08-25T17:41:26Z"/>
+<meta name="ID" content="ArrayOps"/>
+<meta name="User" content="15082516192598746027217998875"/>
+<style type="text/css">
+.header {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header">Testing method copyArray</p>
+<table class="run">
+<tr><th>&nbsp;</th><th>Arguments</th><th>Actual</th><th>Expected</th></tr>
+<tr><td><span class="pass">pass</span></td>
+<td><pre>new int[] { 2, 14, 9, 15, 9, 7, 3, 17, 14 }</pre></td>
+<td><pre>[2, 14, 9, 15, 7, 3, 17]</pre></td>
+<td><pre>[2, 14, 9, 15, 7, 3, 17]</pre></td>
+</tr>
+<tr><td><span class="pass">pass</span></td>
+<td><pre>new int[] { 61, 61 }</pre></td>
+<td><pre>[61]</pre></td>
+<td><pre>[61]</pre></td>
+</tr>
+<tr><td><span class="pass">pass</span></td>
+<td><pre>new int[] { 143 }</pre></td>
+<td><pre>[143]</pre></td>
+<td><pre>[143]</pre></td>
+</tr>
+<tr><td><span class="pass">pass</span></td>
+<td><pre>new int[] { 3, 5, 5, 5, 3, 3, 5, 3, 5 }</pre></td>
+<td><pre>[3, 5]</pre></td>
+<td><pre>[3, 5]</pre></td>
+</tr>
+<tr><td><span class="pass">pass</span></td>
+<td><pre>new int[] { }</pre></td>
+<td><pre>[]</pre></td>
+<td><pre>[]</pre></td>
+</tr>
+<tr><td><span class="pass">pass</span></td>
+<td><pre>new int[] { 1, 2, 3, 4, 5, 4, 3, 2, 1, 0 }</pre></td>
+<td><pre>[1, 2, 3, 4, 5, 0]</pre></td>
+<td><pre>[1, 2, 3, 4, 5, 0]</pre></td>
+</tr>
+</table>
+<p class="header">Student files</p>
+<p class="caption">ArrayOps.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+<span class="linenumber"> 24</span>
+<span class="linenumber"> 25</span>
+<span class="linenumber"> 26</span>
+<span class="linenumber"> 27</span>
+<span class="linenumber"> 28</span>
+<span class="linenumber"> 29</span>
+<span class="linenumber"> 30</span>
+<span class="linenumber"> 31</span>
+<span class="linenumber"> 32</span>
+<span class="linenumber"> 33</span>
+<span class="linenumber"> 34</span>
+<span class="linenumber"> 35</span>
+<span class="linenumber"> 36</span>
+<span class="linenumber"> 37</span>
+<span class="linenumber"> 38</span>
+<span class="linenumber"> 39</span>
+<span class="linenumber"> 40</span>
+<span class="linenumber"> 41</span>
+<span class="linenumber"> 42</span>
+<span class="linenumber"> 43</span>
+<span class="linenumber"> 44</span>
+<span class="linenumber"> 45</span>
+<span class="linenumber"> 46</span>
+<span class="linenumber"> 47</span>
+<span class="linenumber"> 48</span>
+<span class="linenumber"> 49</span>
+</pre></td><td><pre>import java.util.ArrayList;
+
+public class ArrayOps
+{
+    /**
+    This method goes through the given array of integers,
+    yielding a new ArrayList from the array that contains the
+    elements of the original array, with duplicates removed.
+    @param theArray, an array of integer
+    @return the new ArrayList
+
+     */
+    public static ArrayList&lt;Integer&gt; copyArray(int[] anArray)
+    {
+        ArrayList&lt;Integer&gt; copyArray = new ArrayList&lt;&gt;();
+        for (int value : anArray)
+        {
+            copyArray.add(value);
+        }
+        for (int i = 0; i &lt; copyArray.size(); i ++)
+        {
+            int value = copyArray.get(i);
+            for (int k = i + 1; k &lt; copyArray.size(); k ++)
+            {
+                if (value == copyArray.get(k))
+                {
+                    copyArray.remove(k);
+                    k = i;
+                }
+            }
+        }
+        return copyArray;
+    }
+
+    /**
+    This method goes through the given array list of integers,
+    yielding a new array from the array list that contains the
+    elements of the original array list, with duplicates removed.
+    @param theArrayList, an array list of integer
+    @return the new array
+
+     */
+    public static int[] copyArrayList(ArrayList&lt;Integer&gt; anArrayList)
+    {
+        // Complete this for the final version
+
+        return null;
+    }
+}
+</pre></td></tr></table>
+<p class="header">Score</p>
+<p class="score">6/6</p>
+<p class="download"><a href="ArrayOps.signed.zip">Download</a></p>
+<div class="footnotes"><div class="footnote">2015-08-25T17:41:26Z</div>
+</div>
+</body></html>

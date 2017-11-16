@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: 1.8.0_31 (Oracle Corporation)
+
+Name: report.html
+SHA-256-Digest: fBUo37wyrROakJ16ofrwmrvLQ6CUNy2l6mWIBI8Gjno=
+
+Name: BetterRectangle.java
+SHA-256-Digest: ttbCFil87hONMz64FNlhgi70W8O8p59ninQgFafg2O4=
+

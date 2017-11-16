@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=description
+comment0.target=Daily(java.lang.String)
+comment0.text=\n\ Creates\ a\ Daily\ object\ with\ given\ parameters\n\ @param\ description\ the\ description\ of\ the\ appointment\n
+comment1.params=year\ month\ day
+comment1.target=boolean\ occursOn(int,\ int,\ int)
+comment1.text=\n\ checks\ whether\ the\ appointment\ occurs\ daily\n\ @param\ year\ the\ year\ of\ the\ appointment\n\ @param\ month\ the\ month\ of\ the\ appointment\n\ @param\ day\ the\ day\ of\ the\ appointment\n\ @return\ whether\ or\ not\ the\ appointment\ occurs\ daily\ (boolean)\n
+numComments=2

@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Version" content="0.3"/>
+<meta name="Submission" content="15082517147989347276079000169"/>
+<meta name="Problem" content="hw1c"/>
+<meta name="Level" content="1"/>
+<meta name="Time" content="2015-08-25T17:14:35Z"/>
+<meta name="ID" content="Daily"/>
+<meta name="User" content="15082516192598746027217998875"/>
+<style type="text/css">
+.header {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header">Testing AppointmentDemo.java</p>
+<p class="header">Test 1</p>
+<p class="caption">Output:</p>
+<pre class="output">2015 08 20
+Brush your teeth.
+Write some code.
+</pre>
+<span class="pass">pass</span><p class="header">Student files</p>
+<p class="caption">Daily.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+<span class="linenumber"> 24</span>
+<span class="linenumber"> 25</span>
+<span class="linenumber"> 26</span>
+</pre></td><td><pre>/**
+ * Subclass of the class Appointment
+ */
+public class Daily extends Appointment
+{
+    /**
+     * Creates a Daily object with given parameters
+     * @param description the description of the appointment
+     */
+    public Daily(String description)
+    {
+        setDescription(description);
+    }
+    
+    /**
+     * checks whether the appointment occurs daily
+     * @param year the year of the appointment
+     * @param month the month of the appointment
+     * @param day the day of the appointment
+     * @return whether or not the appointment occurs daily (boolean)
+     */
+    public boolean occursOn(int year, int month, int day)
+    {
+        return true;
+    }
+}
+</pre></td></tr></table>
+<p class="header">Provided files</p>
+<p class="caption">Appointment.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+<span class="linenumber"> 24</span>
+<span class="linenumber"> 25</span>
+<span class="linenumber"> 26</span>
+<span class="linenumber"> 27</span>
+<span class="linenumber"> 28</span>
+<span class="linenumber"> 29</span>
+<span class="linenumber"> 30</span>
+<span class="linenumber"> 31</span>
+<span class="linenumber"> 32</span>
+<span class="linenumber"> 33</span>
+<span class="linenumber"> 34</span>
+<span class="linenumber"> 35</span>
+<span class="linenumber"> 36</span>
+<span class="linenumber"> 37</span>
+<span class="linenumber"> 38</span>
+<span class="linenumber"> 39</span>
+<span class="linenumber"> 40</span>
+<span class="linenumber"> 41</span>
+<span class="linenumber"> 42</span>
+<span class="linenumber"> 43</span>
+<span class="linenumber"> 44</span>
+</pre></td><td><pre>/**
+   A class to keep track of an appointment.
+*/
+public class Appointment
+{
+   private String description;
+
+   /**
+      Constructs an appointment without a description.
+   */
+   public Appointment()
+   {
+      description = "";
+   }
+
+   /**
+      Sets the description of this appointment.
+      @param description the text description of the appointment
+   */
+   public void setDescription(String description)
+   {
+      this.description = description;
+   }
+
+   /**
+      Determines if this appointment occurs on the given date.
+      @param year the year
+      @param month the month
+      @param day the day
+      @return true if the appointment occurs on the given date.
+   */
+   public boolean occursOn(int year, int month, int day)
+   {
+      return false;
+   }
+
+   /**
+      Converts appointment to string description.
+   */
+   public String toString()
+   {
+      return description;
+   }
+}
+</pre></td></tr></table>
+<p class="caption">AppointmentDemo.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+<span class="linenumber"> 24</span>
+<span class="linenumber"> 25</span>
+<span class="linenumber"> 26</span>
+</pre></td><td><pre>import java.util.Scanner;
+
+/**
+   Demonstration of the appointment classes
+*/
+public class AppointmentDemo
+{
+   public static void main(String[] args)
+   {
+      Appointment[] appointments = new Appointment[2];
+      appointments[0] = new Daily("Brush your teeth.");
+      appointments[1] = new Daily("Write some code.");
+
+      Scanner in = new Scanner(System.in);
+      int year = in.nextInt();
+      int month = in.nextInt();
+      int day = in.nextInt();
+      for (Appointment a : appointments)
+      {
+         if (a.occursOn(year, month, day))
+         {
+            System.out.println(a);
+         }
+      }
+   }
+}
+</pre></td></tr></table>
+<p class="header">Score</p>
+<p class="score">1/1</p>
+<p class="download"><a href="Daily.signed.zip">Download</a></p>
+<div class="footnotes"><div class="footnote">2015-08-25T17:14:35Z</div>
+</div>
+</body></html>

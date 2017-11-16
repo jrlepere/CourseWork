@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Appointment()
+comment0.text=\n\ \ \ \ \ \ Constructs\ an\ appointment\ without\ a\ description.\n
+comment1.params=description
+comment1.target=void\ setDescription(java.lang.String)
+comment1.text=\n\ \ \ \ \ \ Sets\ the\ description\ of\ this\ appointment.\n\ \ \ \ \ \ @param\ description\ the\ text\ description\ of\ the\ appointment\n
+comment2.params=year\ month\ day
+comment2.target=boolean\ occursOn(int,\ int,\ int)
+comment2.text=\n\ \ \ \ \ \ Determines\ if\ this\ appointment\ occurs\ on\ the\ given\ date.\n\ \ \ \ \ \ @param\ year\ the\ year\n\ \ \ \ \ \ @param\ month\ the\ month\n\ \ \ \ \ \ @param\ day\ the\ day\n\ \ \ \ \ \ @return\ true\ if\ the\ appointment\ occurs\ on\ the\ given\ date.\n
+comment3.params=
+comment3.target=java.lang.String\ toString()
+comment3.text=\n\ \ \ \ \ \ Converts\ appointment\ to\ string\ description.\n
+numComments=4

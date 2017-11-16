@@ -1,0 +1,41 @@
+/**
+ * This program creates an appointment that happens once
+ * @author JLepere2
+ */
+public class OneTime extends Appointment
+{
+	private int year;
+	private int month;
+	private int day;
+	
+	/**
+	 * Creates an appointment that happens once
+	 * @param year the year of the appointment
+	 * @param month the month of the appointment
+	 * @param day the day of the appointment
+	 * @param description the description of the appointment
+	 */
+	public OneTime(int year, int month, int day, String description)
+	{
+		super.setDescription(description);
+		this.year = year;
+		this.month = month;
+		this.day = day;
+	}
+	
+	/**
+	 * Checks whether the appointment occurs on a given date
+	 * @param year the year
+	 * @param month the month
+	 * @param day the day
+	 * @return whether or not the appointment occurs on the given day
+	 */
+	public boolean occursOn(int year, int month, int day)
+	{
+		if(this.year == year && this.month == month && this.day == day) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+}

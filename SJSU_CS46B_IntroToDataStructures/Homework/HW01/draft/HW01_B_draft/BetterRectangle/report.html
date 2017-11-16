@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Version" content="0.3"/>
+<meta name="Submission" content="15082517176239657079175124431"/>
+<meta name="Problem" content="hw1b"/>
+<meta name="Level" content="1"/>
+<meta name="Time" content="2015-08-25T17:17:59Z"/>
+<meta name="ID" content="BetterRectangle"/>
+<meta name="User" content="15082516192598746027217998875"/>
+<style type="text/css">
+.header {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header">Running BetterRectangleTester.java</p>
+<pre class="output">24
+<span class="pass">Expected: 24</span>
+35
+<span class="pass">Expected: 35</span>
+64
+<span class="pass">Expected: 64</span>
+255
+<span class="pass">Expected: 255</span>
+true
+<span class="pass">Expected: true</span>
+</pre>
+<p class="header">Student files</p>
+<p class="caption">BetterRectangle.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+<span class="linenumber"> 24</span>
+<span class="linenumber"> 25</span>
+<span class="linenumber"> 26</span>
+<span class="linenumber"> 27</span>
+<span class="linenumber"> 28</span>
+<span class="linenumber"> 29</span>
+<span class="linenumber"> 30</span>
+<span class="linenumber"> 31</span>
+<span class="linenumber"> 32</span>
+<span class="linenumber"> 33</span>
+<span class="linenumber"> 34</span>
+<span class="linenumber"> 35</span>
+<span class="linenumber"> 36</span>
+<span class="linenumber"> 37</span>
+<span class="linenumber"> 38</span>
+<span class="linenumber"> 39</span>
+</pre></td><td><pre>import java.awt.Rectangle;
+/**
+ * A subclass of the class Rectangle
+ */
+public class BetterRectangle extends Rectangle
+{
+    /**
+     * Creates a BetterRectangle object with given parameters
+     * @param x the top left x coord of the rectangle
+     * @param y the top left y coord of the rectangle
+     * @param width the width of the rectangle
+     * @param height the height of the rectangle
+     */
+    public BetterRectangle(int x, int y, int width, int height)
+    {
+        super.x = x;
+        super.y = y;
+        super.width = width;
+        super.height = height;
+    }
+    
+    /**
+     * Gets the perimeter of the rectangle
+     * @return the perimeter
+     */
+    public int getPerimeter()
+    {
+        return 2 * (width + height);
+    }
+    
+    /**
+     * Gets the area of the rectangle
+     * @return the area
+     */
+    public int getArea()
+    {
+        return width * height;
+    }
+}
+</pre></td></tr></table>
+<p class="header">Provided files</p>
+<p class="caption">BetterRectangleTester.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+</pre></td><td><pre>import java.awt.Rectangle;
+
+/**
+   A class to test BetterRectangle.
+*/
+public class BetterRectangleTester
+{
+   public static void main(String[] args)
+   {
+      BetterRectangle rect = new BetterRectangle(5, 10, 5, 7);
+      System.out.println(rect.getPerimeter());
+      System.out.println("Expected: 24");
+      System.out.println(rect.getArea());
+      System.out.println("Expected: 35");
+      rect.grow(5, 5);
+      System.out.println(rect.getPerimeter());
+      System.out.println("Expected: 64");
+      System.out.println(rect.getArea());
+      System.out.println("Expected: 255");
+      System.out.println(rect instanceof Rectangle);
+      System.out.println("Expected: true");
+   }
+}
+</pre></td></tr></table>
+<p class="header">Score</p>
+<p class="score">5/5</p>
+<p class="download"><a href="BetterRectangle.signed.zip">Download</a></p>
+<div class="footnotes"><div class="footnote">2015-08-25T17:17:59Z</div>
+</div>
+</body></html>

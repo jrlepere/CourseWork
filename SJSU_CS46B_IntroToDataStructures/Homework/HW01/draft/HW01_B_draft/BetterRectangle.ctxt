@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=x\ y\ width\ height
+comment0.target=BetterRectangle(int,\ int,\ int,\ int)
+comment0.text=\n\ Creates\ a\ BetterRectangle\ object\ with\ given\ parameters\n\ @param\ x\ the\ top\ left\ x\ coord\ of\ the\ rectangle\n\ @param\ y\ the\ top\ left\ y\ coord\ of\ the\ rectangle\n\ @param\ width\ the\ width\ of\ the\ rectangle\n\ @param\ height\ the\ height\ of\ the\ rectangle\n
+comment1.params=
+comment1.target=int\ getPerimeter()
+comment1.text=\n\ Gets\ the\ perimeter\ of\ the\ rectangle\n\ @return\ the\ perimeter\n
+comment2.params=
+comment2.target=int\ getArea()
+comment2.text=\n\ Gets\ the\ area\ of\ the\ rectangle\n\ @return\ the\ area\n
+numComments=3

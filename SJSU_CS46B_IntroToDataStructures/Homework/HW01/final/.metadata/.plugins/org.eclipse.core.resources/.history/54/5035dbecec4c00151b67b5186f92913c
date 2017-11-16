@@ -1,0 +1,22 @@
+
+public class Test 
+{	
+	public Test()
+	{
+
+	}
+	
+	public static int returnNumber(int value)
+	{
+		value = value - 7;
+		return 3;
+	}
+	
+	public static void main(String[] args)
+	{
+		int aValue = 4;
+		int anotherValue = Test.returnNumber(7);
+		System.out.println(aValue);
+		System.out.println(anotherValue);
+	}
+}

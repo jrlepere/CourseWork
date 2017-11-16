@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Version" content="0.3"/>
+<meta name="Submission" content="15101019288696826043233194625"/>
+<meta name="Problem" content="hw7c"/>
+<meta name="Level" content="2"/>
+<meta name="Time" content="2015-10-10T19:28:33Z"/>
+<meta name="ID" content="hw7cfinal"/>
+<meta name="User" content="15082516192598746027217998875"/>
+<style type="text/css">
+.header {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header">Testing RegionDemo.java</p>
+<p class="caption">Output:</p>
+<pre class="output">Array of length 4: 
+Merging 0...0 and 1...1
+Merging 2...2 and 3...3
+Merging 0...1 and 2...3
+Array of length 15: 
+Merging 0...0 and 1...1
+Merging 2...2 and 3...3
+Merging 4...4 and 5...5
+Merging 6...6 and 7...7
+Merging 8...8 and 9...9
+Merging 10...10 and 11...11
+Merging 12...12 and 13...13
+Merging 14...14 and 15...15
+Merging 0...1 and 2...3
+Merging 4...5 and 6...7
+Merging 8...9 and 10...11
+Merging 12...13 and 14...15
+Merging 0...3 and 4...7
+Merging 8...11 and 12...15
+Merging 0...7 and 8...15
+Array of length 20: 
+Merging 0...0 and 1...1
+Merging 2...2 and 3...3
+Merging 4...4 and 5...5
+Merging 6...6 and 7...7
+Merging 8...8 and 9...9
+Merging 10...10 and 11...11
+Merging 12...12 and 13...13
+Merging 14...14 and 15...15
+Merging 16...16 and 17...17
+Merging 18...18 and 19...19
+Merging 0...1 and 2...3
+Merging 4...5 and 6...7
+Merging 8...9 and 10...11
+Merging 12...13 and 14...15
+Merging 16...17 and 18...19
+Merging 0...3 and 4...7
+Merging 8...11 and 12...15
+Merging 0...7 and 8...15
+Merging 0...15 and 16...19
+</pre>
+<span class="pass">pass</span><p class="header">JUnit: MergeSortTest.java</p>
+<pre class="output">Pass: 5
+Fail: 0</pre>
+<span class="pass">pass</span><p class="header">Student files</p>
+<p class="caption">MergeSorter.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+<span class="linenumber"> 24</span>
+<span class="linenumber"> 25</span>
+<span class="linenumber"> 26</span>
+<span class="linenumber"> 27</span>
+<span class="linenumber"> 28</span>
+<span class="linenumber"> 29</span>
+<span class="linenumber"> 30</span>
+<span class="linenumber"> 31</span>
+<span class="linenumber"> 32</span>
+<span class="linenumber"> 33</span>
+<span class="linenumber"> 34</span>
+<span class="linenumber"> 35</span>
+<span class="linenumber"> 36</span>
+<span class="linenumber"> 37</span>
+<span class="linenumber"> 38</span>
+<span class="linenumber"> 39</span>
+<span class="linenumber"> 40</span>
+<span class="linenumber"> 41</span>
+<span class="linenumber"> 42</span>
+<span class="linenumber"> 43</span>
+<span class="linenumber"> 44</span>
+<span class="linenumber"> 45</span>
+<span class="linenumber"> 46</span>
+<span class="linenumber"> 47</span>
+<span class="linenumber"> 48</span>
+<span class="linenumber"> 49</span>
+<span class="linenumber"> 50</span>
+<span class="linenumber"> 51</span>
+<span class="linenumber"> 52</span>
+<span class="linenumber"> 53</span>
+<span class="linenumber"> 54</span>
+<span class="linenumber"> 55</span>
+<span class="linenumber"> 56</span>
+<span class="linenumber"> 57</span>
+<span class="linenumber"> 58</span>
+<span class="linenumber"> 59</span>
+<span class="linenumber"> 60</span>
+<span class="linenumber"> 61</span>
+<span class="linenumber"> 62</span>
+<span class="linenumber"> 63</span>
+<span class="linenumber"> 64</span>
+<span class="linenumber"> 65</span>
+<span class="linenumber"> 66</span>
+<span class="linenumber"> 67</span>
+<span class="linenumber"> 68</span>
+<span class="linenumber"> 69</span>
+<span class="linenumber"> 70</span>
+<span class="linenumber"> 71</span>
+<span class="linenumber"> 72</span>
+<span class="linenumber"> 73</span>
+<span class="linenumber"> 74</span>
+<span class="linenumber"> 75</span>
+<span class="linenumber"> 76</span>
+<span class="linenumber"> 77</span>
+<span class="linenumber"> 78</span>
+<span class="linenumber"> 79</span>
+<span class="linenumber"> 80</span>
+<span class="linenumber"> 81</span>
+<span class="linenumber"> 82</span>
+<span class="linenumber"> 83</span>
+<span class="linenumber"> 84</span>
+<span class="linenumber"> 85</span>
+<span class="linenumber"> 86</span>
+<span class="linenumber"> 87</span>
+<span class="linenumber"> 88</span>
+<span class="linenumber"> 89</span>
+<span class="linenumber"> 90</span>
+<span class="linenumber"> 91</span>
+</pre></td><td><pre>/**
+   This class sorts an array, using the merge sort 
+   algorithm nonrecursively.
+*/
+public class MergeSorter
+{
+   /**
+      ...
+   */
+   public static void sort(int[] a, boolean debug)
+   {
+      int length = 1; // The size of the sorted regions
+
+      // while the entire array hasn't yet been sorted
+      while (length &lt;= a.length)
+      {
+         int start = 0; // sort starts at the beginning of the array
+
+         // for each pair of adjacent regions of the given length
+         while (start &lt; a.length-length)
+         {
+        	 if (start &lt;= a.length-2*length) {
+            // merge the pair into a sorted region of size 2 * length
+        	 merge(start,start+length-1,start+length*2-1, a, debug);
+        	 } else {
+        		 // merge all of a together when a is not of power 2
+        		merge(start,start+length-1,a.length-1,a,debug);
+        	 }
+            start += 2*length;
+         }
+         length *= 2;
+      }
+   }
+
+   /**
+      Merges the array from the given inputs
+   */
+   public static void merge(int from, int mid, int to, int[] a, boolean debug)
+   {
+	   if (debug) {
+	    	  System.out.println("Merging " + from + "..." + mid 
+					  + " and " + (mid + 1) + "..." + to);
+	   }
+	   
+	   // Creates the first and second arrays to merge
+	   int[] first = new int[mid - from + 1];
+	   int[] second = new int[to - mid];
+	   
+	   // Sets the values of a to the arrays from the specific merging indexes
+	   int iFirst = 0;
+	   for (int i = from; i &lt;= mid; i ++) {
+		   first[iFirst] = a[i];
+		   iFirst ++;
+	   }
+	   int iSecond = 0;
+	   for (int i = mid+1; i &lt;= to; i ++) {
+		   second[iSecond] = a[i];
+		   iSecond ++;
+	   }
+	   
+	   // Adds the values to a from first and second corresponding to the lowest values
+	   iFirst = 0;
+	   iSecond = 0;
+	   int j = from;
+	   while (iFirst &lt; first.length &amp;&amp; iSecond &lt; second.length) // stops when one array has ran out of indexes to add to a
+	   {
+		   //Finds the next smallest of first or second and adds to a
+		   if (first[iFirst] &lt; second[iSecond]) {
+			   a[j] = first[iFirst];
+			   iFirst ++; // increments iFirst
+		   } else {
+			   a[j] = second[iSecond];
+			   iSecond ++; // increments iSecond
+		   }
+		   j ++; // increments j (index of a)
+	   }
+	      
+	   // Adds the rest of the values to a
+	   // One loop will execute while one will not because one index had exceded the length of the array
+	   while (iFirst &lt; first.length) {
+		   a[j] = first[iFirst];
+		   iFirst ++;
+		   j ++;
+	   }
+	   while (iSecond &lt; second.length) {
+		   a[j] = second[iSecond];
+		   iSecond ++;
+		   j ++;
+	   }
+   }
+}
+</pre></td></tr></table>
+<p class="header">Provided files</p>
+<p class="caption">MergeSortTest.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+<span class="linenumber"> 13</span>
+<span class="linenumber"> 14</span>
+<span class="linenumber"> 15</span>
+<span class="linenumber"> 16</span>
+<span class="linenumber"> 17</span>
+<span class="linenumber"> 18</span>
+<span class="linenumber"> 19</span>
+<span class="linenumber"> 20</span>
+<span class="linenumber"> 21</span>
+<span class="linenumber"> 22</span>
+<span class="linenumber"> 23</span>
+<span class="linenumber"> 24</span>
+<span class="linenumber"> 25</span>
+<span class="linenumber"> 26</span>
+<span class="linenumber"> 27</span>
+<span class="linenumber"> 28</span>
+<span class="linenumber"> 29</span>
+<span class="linenumber"> 30</span>
+<span class="linenumber"> 31</span>
+<span class="linenumber"> 32</span>
+<span class="linenumber"> 33</span>
+<span class="linenumber"> 34</span>
+<span class="linenumber"> 35</span>
+<span class="linenumber"> 36</span>
+<span class="linenumber"> 37</span>
+<span class="linenumber"> 38</span>
+<span class="linenumber"> 39</span>
+<span class="linenumber"> 40</span>
+<span class="linenumber"> 41</span>
+<span class="linenumber"> 42</span>
+<span class="linenumber"> 43</span>
+<span class="linenumber"> 44</span>
+<span class="linenumber"> 45</span>
+<span class="linenumber"> 46</span>
+<span class="linenumber"> 47</span>
+<span class="linenumber"> 48</span>
+<span class="linenumber"> 49</span>
+<span class="linenumber"> 50</span>
+<span class="linenumber"> 51</span>
+<span class="linenumber"> 52</span>
+</pre></td><td><pre>import java.util.*;
+import org.junit.*;
+import static org.junit.Assert.*;
+
+public class MergeSortTest
+{
+   @Test
+   public void mergeTest()
+   {
+      int[] nums = { 1, 4, 1, 2, 7, 0, 4, 6, 7, 5, 8 };
+      MergeSorter.merge(2, 4, 8, nums, false);
+      assertArrayEquals(nums, new int[] { 1, 4, 0, 1, 2, 4, 6, 7, 7, 5, 8});                                          
+   }
+
+   @Test
+   public void testLength15()
+   {
+      int[] nums = { 1, 2, 11, 3, 12, 15, 6, 13, 5, 14, 4, 10, 8, 9, 7 };
+      MergeSorter.sort(nums, false);
+      for (int i = 0; i &lt; nums.length; i++)
+         assertEquals(i + 1, nums[i]);
+   }
+
+   @Test
+   public void testLength16()
+   {
+      int[] nums = { 1, 2, 11, 16, 3, 12, 6, 13, 5, 14, 15, 4, 10, 8, 9, 7 };
+      MergeSorter.sort(nums, false);
+      for (int i = 0; i &lt; nums.length; i++)
+         assertEquals(i + 1, nums[i]);
+   }
+
+   @Test
+   public void testLength17()
+   {
+      int[] nums = { 1, 17, 2, 11, 3, 16, 12, 6, 13, 5, 14, 15, 4, 10, 8, 9, 7 };
+      MergeSorter.sort(nums, false);
+      for (int i = 0; i &lt; nums.length; i++)
+         assertEquals(i + 1, nums[i]);
+   }
+
+   @Test
+   public void testOtherValues()
+   {
+      int[] nums = new int[101];
+      for (int i = 1; i &lt; nums.length; i++) 
+         nums[(31 * i) % nums.length] = i * i;
+      MergeSorter.sort(nums, false);
+      for (int i = 0; i &lt; nums.length; i++)
+         assertEquals(i * i, nums[i]);
+   }
+}
+</pre></td></tr></table>
+<p class="caption">RegionDemo.java:</p>
+<table class="file"><tr><td><pre><span class="linenumber">  1</span>
+<span class="linenumber">  2</span>
+<span class="linenumber">  3</span>
+<span class="linenumber">  4</span>
+<span class="linenumber">  5</span>
+<span class="linenumber">  6</span>
+<span class="linenumber">  7</span>
+<span class="linenumber">  8</span>
+<span class="linenumber">  9</span>
+<span class="linenumber"> 10</span>
+<span class="linenumber"> 11</span>
+<span class="linenumber"> 12</span>
+</pre></td><td><pre>public class RegionDemo
+{
+   public static void main(String[] args)
+   {
+      System.out.println("Array of length 4: ");
+      MergeSorter.sort(new int[4], true);
+      System.out.println("Array of length 15: ");
+      MergeSorter.sort(new int[16], true);
+      System.out.println("Array of length 20: ");
+      MergeSorter.sort(new int[20], true);
+   }
+}
+</pre></td></tr></table>
+<p class="header">Score</p>
+<p class="score">7/7</p>
+<p class="download"><a href="hw7cfinal.signed.zip">Download</a></p>
+<div class="footnotes"><div class="footnote">2015-10-10T19:28:33Z</div>
+</div>
+</body></html>

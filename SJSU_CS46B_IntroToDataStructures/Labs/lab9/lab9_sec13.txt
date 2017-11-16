@@ -1,0 +1,172 @@
+Jake Lepere ÐDriver
+Hoang Huynh - Scribe
+Johnny Chi Ð Driver
+10-23-2015
+lab9 sec13
+
+PartA
+1. See paper
+2. Counts consecutive 
+3. This will not give us any trouble. This would stop the program.
+4. The loop will not be executed any farther because i will be set to j, and I < a.length is false. So there loop will not be executed.
+
+PartB
+1. public static double area(ArrayList<Point2D.Double> p)
+   {
+      int n = p.size();
+      if (n==3) {
+    	  return tTriangleArea(p.get(0),p.get(1),p.get(2));
+      } else {
+    	  int k = n/2;
+    	  ArrayList<Point2D.Double> p1 = new ArrayList<>();
+    	  for (int i = 0; i <= k; i ++) {
+    		  p1.add(p.get(i));
+    	  }
+    	  ArrayList<Point2D.Double> p2 = new ArrayList<>();
+    	  for (int i = k; i < p.size(); i ++) {
+    		  p2.add(p.get(i));
+    	  }
+    	  p2.add(p.get(0));
+    	  return area(p1) + area(p2);
+      }
+   }
+2. Area: 100.0
+Expected: 100.0
+Area: 2.598076211353316	
+Expected: 2.598076211353316
+Area: 1400.0
+Expected: 1400
+3. We adapted the pseudocode to by changing the [] or array to and array list. Other than this everything was pretty straight forward. 
+
+PartC
+1. Two mistakes here are that the psuedocode doesnÕt explain how someone should divide (create two separate). Also they may be of different sizes. 
+2. Here is one poor pseudocode:
+create ArrayList<Puzzle> solutions
+if p is solved --> then add p to solutions
+       else:
+         initialize string variable firstLetter to p.firstLetter()
+         if firstLetter is not empty --> then go through for-loop
+from 0 to 9
+            inside for-loop: if p does not contain i --> then set p equal to p.replace(firstLetter, i) and solvePuzzle(p)
+return solutions
+Here is another:
+       String[] strings = {"Mary", "had", "a", "little", "lamb"};
+       Comparator<String> comp = (s, t) -> s.compareTo(t);
+       . . .
+       p = SelectionSorter.minimumPosition(strings, 0, comp);
+assertEquals(0, p)
+3. I = 0
+Counter = 0;
+While i < a.length
+	If a[i] = str
+		Counter ++
+	I ++
+4. Done
+5. I must be incremented within the while loop.
+6. Here is another poor pseudocode:
+sort(object[] a, comp c)
+for (i; /*helper boolean method*/isSorted(a, c); increment i)
+      swap(a, i, minimumPosition(from i on))
+
+boolean isSorted(Object[] a, comp c)
+   for loop through array until a.length-1
+       if c.compare (object at i, object at i+1) > 0
+          return false
+   if we exit loop without returning, return true
+       minimumPosition
+working code to find and return minimum position
+
+In this code we could change the for loop design to say something like i : a.length() -1. Also, the if we exit is not needed, this is an else stamement. I am unclear what the working code to find and return minimum position means.
+7. minimumPositionAfter(a, r, c)
+ temp = a[r,c];
+ min = 21;
+     for row in 0Éa[r].length
+    	  for column = 0 : a[c].length
+    		if a[r][c] < min 
+    			min=a[r][c];
+    			temp[0] = r;
+    			temp[1] = c;
+        return temp;
+8. The for loops should be from 0 : the length Ð 1. Also, to iterate through all elements in a row you should use a.length, and to iterate through all elements in a column you should use a[0].length.
+
+PartD
+1. Ch = str.charAt(str.length()-1);
+2. Int Sum = 0;
+For (int I = 0; I < a.length, I ++) {
+	Sum += a[I];
+}
+3. If a[i] < 0
+Return I;
+4. For (int I = 0; I < str.length; I ++) {
+If (str.substring(I,i+1).equals(Ò$Ó)) {
+	Return I;
+}
+	}
+5. Str = str.replaceAll(Ò,Ó,ÓÓ);
+Salary = Double.ParseDouble(str);
+
+Part E
+1. One error is that we need someway to stop a from incrementing. We also donÕt want to execute some of the code if j == a.length; 
+2. P1 = [c0,c1,c2,c3,c4]; p2 = [c5,c6,c7]
+3. P1 is the red polygon and P2 not correct.
+4. I fixed the psuedocode by chaning the parameters of the second for loop to be from k to p.size()-1. Also, c0 is not added to the p2.
+5. The result is [2,2]. Neither of the loops would execute for these given r and c values.
+6. To fix this you would either need to implement smaller r and c values or you could change to code to search through the rows and columns in reverse.
+
+Part F
+1. You could either split the line or scan through the line with a scanner.
+2. strArray = split line
+quantity = strArray[1]
+price = strArray[2]
+3. quantity = parse(quantity.trim)
+price = parse(price.trim)
+4. getValues(line)
+array = new array of length 2
+       strArray = split line
+       quantity = strArray[1]
+       price = strArray[2]
+       array[0] = quantity;
+       array[1] = price;
+       return array;
+
+Part G
+1. count = ith run
+i = 0
+     max = 0
+     imax = 0
+     while i < a.length
+   	  j = i + 1
+   	  while j < a.length and a[i] == a[j]
+     	 j++
+  	  if j - i > max
+     	 max = j - i
+          	imax = i
+       if count == i
+		return j;
+         i = j
+2. arrayline = split line
+for I in 0ÉarrayLine.length
+	trim arrayLine[I]
+return arrayLine
+3. copy = sorted array
+counter = 0
+kth smallest;
+for I in 0Éa.length-1
+	j = I +1
+	while a[i] = a[j]
+		j ++
+	count ++
+	if counter = k
+		a[i] = kth smallest
+		stop
+count = 0
+for I = 0Éa.length-1
+	if a[i] = kth smallest
+		count ++
+arrayPos = new int array of length count
+posCount = 0
+for I = 0Éa.length -1
+	if a[i] = kth element
+		arrayPos[posCount] = i
+		posCount ++
+return arrayPos
