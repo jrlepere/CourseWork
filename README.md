@@ -30,3 +30,15 @@ SJSU Spring 2016
 - MATH133B: Partial Differential Equations (B+) [N/A]
 - MATH138: Complex Variables (A) [N/A]
 
+SJSU Fall 2015
+- CS46B: Introduction to Data Structures (A)
+- MATH143M: Numerical Analysis and Scientiric Computing (A) [N/A]
+- MATH161A: Applied Probability and Statistics (A) [N/A]
+
+SJSU Spring 2015
+- CS46A: Intro to Programming (A) [N/A]
+- MATH42: Discrete Mathematics (A) [N/A]
+- MATH112: Vector Calculus (A) [N/A]
+- MATH129A: Linear Algebra (B) [N/A]
+
+...
