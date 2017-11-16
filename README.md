@@ -2,9 +2,9 @@
 Projects and Homeworks
 
 Outline:
-<School> <Term> <Year>
-- <Course Number>: <Course Name> <(Grade)> <[N/A]>?
-  [N/A] -> No data in GitHub
+<(School)> <(Term)> <(Year)>
+- <(Course Number)>: <(Course Name)> <(Grade)> <[N/A]>?
+   - [N/A] -> No data in GitHub
 
 CPP Fall 2017
 - CS311: Formal Language and Automata [N/A]
