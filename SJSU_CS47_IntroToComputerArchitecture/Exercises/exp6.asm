@@ -1,0 +1,35 @@
+.include "./cs47_macro.asm"
+.text
+main: 
+li 	$0, 0x0
+li 	$1, 0x1
+li	$2, 0x2 #values for function resulst
+li	$3, 0x3
+li	$4, 0x4 #arguments 
+li	$5, 0x5
+li	$6, 0x6
+li 	$7, 0x7
+li 	$8, 0x8 #temporaries
+li	$9, 0x9
+li	$10, 0xA
+li	$11, 0xB
+li	$12, 0xC
+li	$13, 0xD
+li	$14, 0xE
+li	$15, 0xF
+li	$16, 0x10 #saved temporaries
+li	$17, 0x11
+li	$18, 0x12
+li	$19, 0x13
+li	$20, 0x14
+li	$21, 0x15
+li	$22, 0x16
+li	$23, 0x17
+li	$24, 0x18 # Temoraries
+li	$25, 0x19
+li	$26, 0x1A #REserved for OS kernal
+li	$27, 0x1B
+li	$28, 0x1C #Global Pointer
+li	$29, 0x1D # Global stack
+li	$30, 0x1E #Frame pointer
+li 	$31, 0x1F # Return address
