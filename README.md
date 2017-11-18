@@ -1,5 +1,4 @@
-# CourseWork
-Projects and Homeworks
+# CourseWork: Projects and Homeworks
 
 Outline:
 <(School)> <(Term)> <(Year)>
