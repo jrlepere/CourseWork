@@ -6,9 +6,9 @@ Outline:
    - [N/A] -> No data in GitHub
 
 CPP Fall 2017
-- CS311: Formal Language and Automata [N/A]
-- CS331: Design and Analysis of Algorithms
-- CS431: Operating Systems
+- CS311: Formal Language and Automata (A) [N/A]
+- CS331: Design and Analysis of Algorithms (A)
+- CS431: Operating Systems (A)
 
 SJSU Spring 2017
 - CS152: Programming Paradigms (A)
