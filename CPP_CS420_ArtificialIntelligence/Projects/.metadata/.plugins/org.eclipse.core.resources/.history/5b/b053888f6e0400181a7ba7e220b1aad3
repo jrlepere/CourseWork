@@ -1,0 +1,28 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class DepthTesting {
+
+	@Test
+	public void depth4() {
+		int expectedDepth = 4;
+		Problem p;
+		int[] s1 = new int[]{3,1,0,4,5,2,6,7,8};
+		int[] s2 = new int[]{3,2,0,4,1,5,6,7,8};
+		p = new Problem(s1);
+		assertEquals(expectedDepth, aStar.execute(p).getTotalDepth());
+		p = new Problem(s2);
+		assertEquals(expectedDepth, aStar.execute(p).getTotalDepth());
+	}
+	
+	@Test
+	public void test2() {
+		int[] initSequence = new int[]{3,2,0,4,1,5,6,7,8};
+		Problem p = new Problem(initSequence);
+		assertEquals(4, aStar.execute(p).getTotalDepth());
+	}
+	
+	private ISearchAlgorithm aStar = new AStar();
+
+}

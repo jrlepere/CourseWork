@@ -1,0 +1,13 @@
+
+public class AStarNode extends PriorityNode {
+
+	public AStarNode(State theState, Node theParent, IAction theAction, int thePriority) {
+		super(theState, theParent, theAction, thePriority);
+	}
+	
+	public int compareTo(PriorityNode o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

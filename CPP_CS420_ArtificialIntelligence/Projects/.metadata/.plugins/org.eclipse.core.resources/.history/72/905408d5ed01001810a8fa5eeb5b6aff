@@ -1,0 +1,15 @@
+/**
+ * An Action Interface.
+ * @author JLepere2
+ * @date 01/25/2017
+ */
+public interface IAction {
+
+	/**
+	 * Tests if the action will result in a new state.
+	 * @param s the state
+	 * @return true if the action will result in a new state, false otherwise.
+	 */
+	public boolean canExecute(State s);
+	
+}

@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.PriorityQueue;
+
+/**
+ * Implements the AStar algorithm
+ * @author JLepere2
+ * @date 01/25/2018
+ */
+public class AStar extends ASearchAlgorithm {
+
+	public Node execute(Problem p) {
+		Node iNode = p.getInitialChild();
+		PriorityNode node = new PriorityNode(iNode.getState(), iNode.getParent(), iNode.getAction(), iNode.getCost() + p.heuristicOne(iNode.getState()));
+		PriorityQueue<PriorityNode> frontier = new PriorityQueue<PriorityNode>(new Comparator<PriorityNode>() {
+			public int compare(PriorityNode o1, PriorityNode o2) {
+				return o1.compareTo(o2);
+			}
+		});
+		List<State> explored = new ArrayList<State>();
+		return null;
+	}
+
+}

@@ -1,0 +1,26 @@
+import java.util.List;
+
+/**
+ * An object to be returned from executing an algorithm.
+ * @author JLepere2
+ * @date 01/28/2018
+ */
+public class ResultObject {
+
+	/**
+	 * Creates a ResultObject
+	 * @param initialNode the initial node
+	 * @param goalNode the goal node
+	 * @param actionSequence a list of actions to get from the goal node to the initial node
+	 */
+	public ResultObject(Node initialNode, Node goalNode, List<IAction> actionSequence) {
+		this.init = initialNode;
+		this.goal = goalNode;
+		this.actions = actionSequence;
+	}
+	
+	private Node init;
+	private Node goal;
+	private List<IAction> actions;
+	
+}

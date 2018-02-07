@@ -1,0 +1,36 @@
+/**
+ * A Node object for the problem.
+ * @author JLepere2
+ * @date 01/25/2018
+ */
+public class Node {
+
+	/**
+	 * Creates a Node for the problem.
+	 * @param theState the state
+	 * @param theParent the parent
+	 * @param theAction the action
+	 */
+	public Node(State theState, Node theParent, IAction theAction) {
+		this.state = theState;
+		this.parent = theParent;
+		this.action = theAction;
+		this.depth = 0;
+		this.cost = 0;
+		if (theParent != null) {
+			this.depth = theParent.depth + 1;
+			this.cost = theParent.cost + theAction.getCost();
+		}
+	}
+	
+	public boolean equals(Object other) {
+		return state.equals(((Node) other).state);
+	}
+	
+	private State state;
+	private Node parent;
+	private IAction action;
+	private int depth;
+	private int cost;
+	
+}

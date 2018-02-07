@@ -1,0 +1,9 @@
+import java.util.List;
+
+public abstract class ASearchAlgorithm implements ISearchAlgorithm {
+
+	public List<IAction> search(Node goal) {
+		return null;
+	}
+	
+}

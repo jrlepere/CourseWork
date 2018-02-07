@@ -1,0 +1,9 @@
+
+public class AStarNode extends Node {
+
+	public AStarNode(State theState, Node theParent, IAction theAction) {
+		super(theState, theParent, theAction);
+		// TODO Auto-generated constructor stub
+	}
+
+}

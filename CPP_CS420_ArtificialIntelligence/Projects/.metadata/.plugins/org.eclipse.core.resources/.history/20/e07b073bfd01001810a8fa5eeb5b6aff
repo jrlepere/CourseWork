@@ -1,0 +1,15 @@
+
+public class PriorityNode extends Node implements Comparable<PriorityNode> {
+
+	public PriorityNode(State theState, Node theParent, IAction theAction, int theEvaluationFunctionValue) {
+		super(theState, theParent, theAction);
+		this.evaluationFunctionValue = theEvaluationFunctionValue;
+	}
+	
+	public int compareTo(PriorityNode o) {
+		return this.evaluationFunctionValue - o.evaluationFunctionValue;
+	}
+	
+	private int evaluationFunctionValue;
+
+}

@@ -1,0 +1,36 @@
+package testing;
+
+import org.junit.Test;
+
+import algorithm.AStar;
+import algorithm.ISearchAlgorithm;
+import algorithm.ResultObject;
+import eight_puzzle.Problem;
+
+public class DepthAnalysis {
+
+	@Test
+	public void writeCsvDepthAnalysis() {
+		
+		int[] depths = new int[]{2,4,6,8,10,12,14,16,18,20};
+		long[] h1GenNodes = new long[10];
+		long[] h2GenNodes = new long[10];
+		int[] countPerDepth = new int[10];
+		int maxPerDepth = 10;
+		
+		ISearchAlgorithm aStar = new AStar();
+		int h1Num = 1;
+		int h2Num = 2;
+		while (true) {
+			ResultObject res = aStar.execute(new Problem(null,h2Num));
+			int totalDepth = res.getTotalDepth();
+			if ((totalDepth <= 20) && (totalDepth > 1) && (totalDepth % 2 == 0)) {
+				int index = totalDepth/2 - 1;
+				h2GenNodes[index] += res.getNumberNodesGenerated();
+				h1GenNodes[index] += aStar.execute(new Problem(res.getInitialState().getTileLocations(),h1Num)).getNumberNodesGenerated();
+			}
+		}
+		
+	}
+
+}

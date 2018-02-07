@@ -1,0 +1,167 @@
+import java.util.Scanner;
+
+import action.IAction;
+import algorithm.AStar;
+import algorithm.ISearchAlgorithm;
+import algorithm.ResultObject;
+import eight_puzzle.Problem;
+import eight_puzzle.State;
+
+/**
+ * The Main method for the project.
+ * @author JLepere2
+ * @date 01/25/2018
+ */
+public class Main {
+
+	/**
+	 * The main method for the program.
+	 * @param args the command line arguments.
+	 */
+	public static void main(String[] args) {
+		
+		Scanner in = new Scanner(System.in);
+		ISearchAlgorithm aStar = new AStar();
+		String userInput = "";
+		ResultObject res;
+		while (true) {
+			try {
+				System.out.println("");
+				printMainChoices();
+				userInput = in.nextLine().trim();
+				if (userInput.equals("q") || userInput.equals("Q")) break;
+				int choice = Integer.parseInt(userInput);
+				if (choice == 1 || choice == 2 || choice == 3) {
+					if (choice == 1) {
+						res = aStar.execute(new Problem(null, getHeuristicNumber(in)));
+						printResultSequence(res);
+					} else if (choice == 2) {
+						res = aStar.execute(new Problem(getUserInputSequence(in), getHeuristicNumber(in)));
+						printResultSequence(res);
+					} else {
+						int MIN_DEPTH = 10;
+						int count = 3;
+						int heuristicNum = getHeuristicNumber(in); 
+						while (count > 0) {
+							res = aStar.execute(new Problem(null, heuristicNum));
+							if (res.getTotalDepth() >= MIN_DEPTH) {
+								printResultSequence(res);
+								count --;
+							}
+						}
+					}
+				}
+				System.out.print("\nContinue? [Y/N]: ");
+				String cont = in.nextLine().trim();
+				if (!cont.equals("y") && !cont.equals("Y")) break;
+			} catch (NumberFormatException e) {
+				System.out.println("Invalid input. Try again");
+				continue;
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+				break;
+			}
+		}
+		in.close();	
+	}
+	
+	/**
+	 * Prints the main choices for the user.
+	 */
+	private static void printMainChoices() {
+		System.out.println("Enter one of the following:");
+		System.out.println("[1]: Random.");
+		System.out.println("[2]: User input.");
+		System.out.println("[3]: Random depth 10+ x3.");
+		System.out.println("[4]: TODO.");
+		System.out.println("[Q]: Quit.");
+		System.out.print("Input: ");
+	}
+	
+	/**
+	 * Gets the heuristic to execute for the A* algorithm.
+	 * @param in the keyboard scanner
+	 * @return the heuristic number (1 or 2)
+	 */
+	private static int getHeuristicNumber(Scanner in) {
+		while (true) {
+			System.out.println("");
+			System.out.println("Select heuristic function:");
+			System.out.println("[1]: Number of misplaced tiles.");
+			System.out.println("[2]: Manhattan distances.");
+			System.out.print("Heuristic: ");
+			try {
+				int choice = Integer.parseInt(in.nextLine().trim());
+				if (choice == 1 || choice == 2) {
+					return choice;
+				}
+				System.out.println("Not acceptable input. Try again.");
+			} catch (NumberFormatException e) {
+				System.out.println("Not acceptable input. Try again.");
+			}
+		}
+	}
+	
+	/**
+	 * Gets the initial sequence from the user.
+	 * @param in the keyboard scanner.
+	 * @return the initial sequence.
+	 */
+	private static int[] getUserInputSequence(Scanner in) {
+		Problem p = new Problem(null, 1);
+		while (true) {
+			int[] tileSequence = new int[9];
+			System.out.println("");
+			System.out.print("Sequence: ");
+			String tileSequenceString = in.nextLine();
+			if (tileSequenceString.length() != 9) {
+				System.out.println("Input should be 9 characters long.");
+				continue;
+			}
+			try {
+				for (int i = 0; i < tileSequence.length; i ++) {
+					if (i == tileSequence.length - 1) {
+						tileSequence[i] = Integer.parseInt(tileSequenceString.substring(i));
+					} else {
+						tileSequence[i] = Integer.parseInt(tileSequenceString.substring(i, i+1));
+					}
+					if (tileSequence[i] == 9) {
+						throw new NumberFormatException();
+					}
+				}
+				int[] check = new int[9];
+				for (int i = 0; i < tileSequence.length; i ++) {
+					check[tileSequence[i]] += 1;
+				}
+				for (int i = 0; i < tileSequence.length; i ++) {
+					if (check[i] != 1) {
+						throw new NumberFormatException();
+					}
+				}
+			} catch (NumberFormatException e) {
+				System.out.println("Invalid input. Try again");
+				continue;
+			}
+			if (p.validInitialSequence(tileSequence)) {
+				return tileSequence;
+			}
+			System.out.println("Input will never yield a solution. Try again.");
+		}
+	}
+	
+	/**
+	 * Prints each state using the sequence of actions to get form initial to goal.
+	 * @param res the result object from AStar.
+	 */
+	private static void printResultSequence(ResultObject res) {
+		System.out.println();
+		System.out.println("Depth: " + res.getTotalDepth());
+		State state = res.getInitialState();
+		for (IAction action : res.getActionSequence()) {
+			System.out.println(state + " " + action);
+			state = action.execute(state);
+		}
+		System.out.println(state);
+	}
+	
+}

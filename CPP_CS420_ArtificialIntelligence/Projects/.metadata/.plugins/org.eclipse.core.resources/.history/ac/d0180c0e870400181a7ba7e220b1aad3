@@ -1,0 +1,57 @@
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.function.Predicate;
+
+/**
+ * Implements the AStar algorithm
+ * @author JLepere2
+ * @date 01/25/2018
+ */
+public class AStar extends ASearchAlgorithm {
+
+	public ResultObject execute(Problem p) {
+		Node iNode = p.getInitialChild();
+		PriorityNode initialNode = new PriorityNode(iNode.getState(), iNode.getParent(), iNode.getAction(), iNode.getCost() + p.heuristicOne(iNode.getState()));
+		PriorityQueue<PriorityNode> frontier = new PriorityQueue<PriorityNode>(new Comparator<PriorityNode>() {
+			public int compare(PriorityNode o1, PriorityNode o2) {
+				return o1.compareTo(o2);
+			}
+		});
+		frontier.add(initialNode);
+		List<State> explored = new ArrayList<State>();
+		while (true) {
+			if (frontier.isEmpty()) {
+				break;
+			}
+			Node node = frontier.remove();
+			if (p.isGoalState(node.getState())) {
+				return new ResultObject(initialNode, node, search(node));
+			}
+			explored.add(node.getState());
+			for (IAction action : p.getActions(node.getState())) {
+				State newState = action.execute(node.getState());
+				PriorityNode child = new PriorityNode(newState, node, action, node.getCost() + action.getCost() + p.heuristicOne(newState));
+				// TODO: remove duplicates (Either replace or add w/ check b.c. best will have higher priority anyways)
+				if (!explored.contains(newState) && !frontier.contains(child)) {
+					frontier.add(child);
+				} else {
+					boolean removed = frontier.removeIf(new Predicate<PriorityNode>() {
+						public boolean test(PriorityNode t) {
+							if (t.equals(child) && (t.getEvaluationFunctionValue() >= child.getEvaluationFunctionValue())) {
+								return true;
+							}
+							return false;
+						}
+					});
+					if (removed) {
+						frontier.add(child);
+					}
+				}
+			}
+		}
+		return null;
+	}
+
+}

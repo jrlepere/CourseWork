@@ -1,0 +1,17 @@
+package testing;
+
+import org.junit.Test;
+
+public class DepthAnalysis {
+
+	@Test
+	public void writeCsvDepthAnalysis() {
+		int[] depths = new int[]{2,4,6,8,10,12,14,16,18,20};
+		int[] h1GenNodes = new int[10];
+		int[] h2GenNodes = new int[10];
+		int[] countPerDepth = new int[10];
+		int maxPerDepth = 10;
+		
+	}
+
+}

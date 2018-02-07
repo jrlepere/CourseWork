@@ -1,0 +1,18 @@
+/**
+ * An Action for moving the blank tile on the board.
+ * @author JLepere2
+ * @date 01/25/2018
+ */
+public class MoveBlankTile implements IAction {
+
+	public boolean canExecute(State s) {
+		
+		return false;
+	}
+
+	public State execute(State s) {
+		
+		return null;
+	}
+
+}

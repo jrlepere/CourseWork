@@ -1,0 +1,8 @@
+/**
+ * An object to be returned from executing an algorithm.
+ * @author JLepere2
+ * @date 01/28/2018
+ */
+public class ResultObject {
+
+}

@@ -1,0 +1,11 @@
+
+abstract public class PriorityNode extends Node implements Comparable<PriorityNode> {
+
+	public PriorityNode(State theState, Node theParent, IAction theAction, int thePriority) {
+		super(theState, theParent, theAction);
+		this.priority = thePriority;
+	}
+	
+	private int priority;
+
+}

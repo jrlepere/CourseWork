@@ -1,0 +1,12 @@
+import java.util.List;
+
+public interface ISearchAlgorithm {
+	
+	/**
+	 * Searches for a list actions to solve the problem
+	 * @param p the problem
+	 * @return a list of actions
+	 */
+	public List<IAction> search(Problem p);
+	
+}

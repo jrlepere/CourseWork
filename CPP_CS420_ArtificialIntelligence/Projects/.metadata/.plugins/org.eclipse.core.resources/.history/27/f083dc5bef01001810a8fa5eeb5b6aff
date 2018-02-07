@@ -1,0 +1,29 @@
+/**
+ * A State object for the specific eight puzzle problem.
+ * @author JLepere2
+ * @date 01/25/2018
+ */
+public class State {
+
+	/**
+	 * Creates a State object with the passed tile locations.
+	 * @param theTileLocations the tile locations in the form:
+	 *    x0 x1 x2
+	 *    x3 x4 x5   = [x0,x1,x2,x3,x4,x5,x6,x7,x8]
+	 *    x6 x7 x8
+	 */
+	public State(int[] theTileLocations) {
+		this.tileLocations = theTileLocations;
+	}
+	
+	/**
+	 * Gets the tile locations for this state.
+	 * @return the tile locations.
+	 */
+	public int[] getTileLocations() {
+		return tileLocations;
+	}
+	
+	private int[] tileLocations;
+	
+}

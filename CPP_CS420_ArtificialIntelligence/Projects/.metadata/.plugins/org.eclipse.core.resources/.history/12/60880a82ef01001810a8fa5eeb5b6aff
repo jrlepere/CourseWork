@@ -1,0 +1,36 @@
+/**
+ * An Action for moving the blank tile on the board.
+ * @author JLepere2
+ * @date 01/25/2018
+ */
+public class MoveBlankTile implements IAction {
+
+	/**
+	 * Creates a MoveBlankTile Action with a direction. That is,
+	 *  direction defines which way to move the blank tile (Up, Right, Down or Left).
+	 * @param direction the direction to move the tile where:
+	 *  1 -> UP
+	 *  2 -> Right
+	 *  3 -> Down
+	 *  4 -> Left
+	 */
+	public MoveBlankTile(int direction) {
+		this.dir = direction;
+	}
+	
+	public boolean canExecute(State s) {
+		int[] tileLocations = s.getTileLocations();
+		if (dir == 1) {
+			
+		}
+		return false;
+	}
+
+	public State execute(State s) {
+		
+		return null;
+	}
+	
+	private int dir;
+
+}

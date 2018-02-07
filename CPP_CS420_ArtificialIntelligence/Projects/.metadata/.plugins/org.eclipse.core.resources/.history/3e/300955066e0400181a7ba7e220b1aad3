@@ -1,0 +1,16 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class DepthTesting {
+
+	@Test
+	public void test() {
+		int[] initSequence = new int[]{};
+		Problem p = new Problem(initSequence);
+		assertEquals(4, aStar.execute(p).getTotalDepth());
+	}
+	
+	private ISearchAlgorithm aStar = new AStar();
+
+}

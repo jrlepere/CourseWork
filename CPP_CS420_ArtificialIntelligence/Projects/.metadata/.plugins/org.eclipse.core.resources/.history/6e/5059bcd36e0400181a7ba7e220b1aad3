@@ -1,0 +1,45 @@
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class DepthTesting {
+
+	@Test
+	public void depth4() {
+		int expectedDepth = 4;
+		Problem p;
+		int[] s1 = new int[]{3,1,0,4,5,2,6,7,8};
+		int[] s2 = new int[]{3,2,0,4,1,5,6,7,8};
+		p = new Problem(s1);
+		assertEquals(expectedDepth, aStar.execute(p).getTotalDepth());
+		p = new Problem(s2);
+		assertEquals(expectedDepth, aStar.execute(p).getTotalDepth());
+	}
+	
+	@Test
+	public void depth8() {
+		int expectedDepth = 8;
+		Problem p;
+		int[] s1 = new int[]{4,3,1,5,0,2,6,7,8};
+		int[] s2 = new int[]{3,2,5,4,0,8,6,1,7};
+		p = new Problem(s1);
+		assertEquals(expectedDepth, aStar.execute(p).getTotalDepth());
+		p = new Problem(s2);
+		assertEquals(expectedDepth, aStar.execute(p).getTotalDepth());
+	}
+	
+	@Test
+	public void depth12() {
+		int expectedDepth = 12;
+		Problem p;
+		int[] s1 = new int[]{5,4,1,6,3,2,0,7,8};
+		int[] s2 = new int[]{3,5,8,4,0,2,6,1,7};
+		p = new Problem(s1);
+		assertEquals(expectedDepth, aStar.execute(p).getTotalDepth());
+		p = new Problem(s2);
+		assertEquals(expectedDepth, aStar.execute(p).getTotalDepth());
+	}
+	
+	private ISearchAlgorithm aStar = new AStar();
+
+}

@@ -1,0 +1,16 @@
+
+public class PriorityNode extends Node {
+
+	public PriorityNode(State theState, Node theParent, IAction theAction, int thePriority) {
+		super(theState, theParent, theAction);
+		this.priority = thePriority;
+	}
+	
+	public int compareTo(Node o) {
+		o = (PriorityNode) o;
+		return 0;
+	}
+	
+	private int priority;
+
+}

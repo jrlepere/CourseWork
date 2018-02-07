@@ -1,0 +1,9 @@
+
+public class PriorityNode extends Node {
+
+	public PriorityNode(State theState, Node theParent, IAction theAction) {
+		super(theState, theParent, theAction);
+		// TODO Auto-generated constructor stub
+	}
+
+}

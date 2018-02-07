@@ -1,0 +1,81 @@
+package testing;
+
+import static org.junit.Assert.assertEquals;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+import org.junit.Test;
+
+import algorithm.AStar;
+import algorithm.ISearchAlgorithm;
+import eight_puzzle.Problem;
+
+public class DepthAnalysis {
+
+	@Test
+	public void fileTest() {
+		ISearchAlgorithm aStar = new AStar();
+		try {
+			int depth = 0;
+			String line;
+			Problem p;
+			Scanner s = new Scanner(new File("100_Puzzles.txt"));
+			while (s.hasNextLine()) {
+				line = s.nextLine().trim();
+				if (line.startsWith("Depth")) {
+					depth = Integer.parseInt(line.split(" ")[1]);
+				} else {
+					int[] sequence = new int[9];
+					for (int i = 0; i < sequence.length; i ++) {
+						if (i == sequence.length - 1) {
+							sequence[i] = Integer.parseInt(line.substring(i));
+						} else {
+							sequence[i] = Integer.parseInt(line.substring(i, i+1));
+						}
+					}
+					p = new Problem(sequence,2);
+					assertEquals(depth, aStar.execute(p).getTotalDepth());
+				}
+			}
+			s.close();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	/*
+	 * long[] h1GenNodes = new long[10];
+		long[] h2GenNodes = new long[10];
+		int[] countPerDepth = new int[10];
+		int maxPerDepth = 10;
+		
+		ISearchAlgorithm aStar = new AStar();
+		int h1Num = 1;
+		int h2Num = 2;
+		while (true) {
+			System.out.println(Arrays.toString(countPerDepth));
+			boolean exit = true;
+			for (int i = 0; i < countPerDepth.length; i ++) {
+				if (countPerDepth[i] < maxPerDepth) {
+					exit = false;
+				}
+			}
+			if (exit) break;
+			ResultObject res = aStar.execute(new Problem(null,h2Num));
+			int totalDepth = res.getTotalDepth();
+			if ((totalDepth <= 20) && (totalDepth > 1) && (totalDepth % 2 == 0)) {
+				int index = totalDepth/2 - 1;
+				if (countPerDepth[index] > maxPerDepth) continue;
+				h2GenNodes[index] += res.getNumberNodesGenerated();
+				h1GenNodes[index] += aStar.execute(new Problem(res.getInitialState().getTileLocations(),h1Num)).getNumberNodesGenerated();
+				countPerDepth[index] += 1;
+			}
+		}
+		System.out.println(h1GenNodes);
+		System.out.println(h2GenNodes);
+	 */
+
+}

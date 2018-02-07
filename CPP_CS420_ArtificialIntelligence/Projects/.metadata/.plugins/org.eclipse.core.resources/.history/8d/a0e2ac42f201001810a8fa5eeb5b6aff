@@ -1,0 +1,17 @@
+/**
+ * A Node object for the problem.
+ * @author JLepere2
+ * @date 01/25/2018
+ */
+public class Node {
+
+	public Node(State theState, Node theParent, IAction theAction) {
+		
+	}
+	
+	private State state;
+	private Node parent;
+	private IAction action;
+	private int depth;
+	
+}

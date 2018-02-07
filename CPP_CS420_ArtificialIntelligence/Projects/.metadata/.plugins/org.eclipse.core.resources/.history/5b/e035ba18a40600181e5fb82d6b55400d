@@ -1,0 +1,16 @@
+package testing;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class DepthAnalysis {
+
+	@Test
+	public void writeCsvDepthAnalysis() {
+		int[] depths = new int[]{2,4,6,8,10,12,14,16,18,20};
+		int perDepth = 10;
+		
+	}
+
+}

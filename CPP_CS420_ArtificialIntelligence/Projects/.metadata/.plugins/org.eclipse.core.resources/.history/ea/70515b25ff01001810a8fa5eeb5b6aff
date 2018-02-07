@@ -1,0 +1,100 @@
+/**
+ * An Action for moving the blank tile on the board.
+ * @author JLepere2
+ * @date 01/25/2018
+ */
+public class MoveBlankTile implements IAction {
+
+	public enum Direction {
+		UP, DOWN, RIGHT, LEFT
+	}
+		
+	/**
+	 * Creates a MoveBlankTile Action with a direction. That is,
+	 *  direction defines which way to move the blank tile (Up, Right, Down or Left).
+	 * @param direction the direction to move the tile
+	 */
+	public MoveBlankTile(Direction dir) {
+		this.direction = dir;
+	}
+	
+	public boolean canExecute(State s) {
+		int blankTileLocation = s.getBlankTileLocation();
+		if (direction == Direction.UP) {
+			if (blankTileLocation < 3) {
+				return false;
+			}
+			return true;
+		}
+		if (direction == Direction.RIGHT) {
+			if (blankTileLocation + 1 % 3 == 0) {
+				return false;
+			}
+			return true;
+		}
+		if (direction == Direction.DOWN) {
+			if (blankTileLocation > 5) {
+				return false;
+			}
+			return true;
+		}
+		if (direction == Direction.LEFT) {
+			if (blankTileLocation % 3 == 0) {
+				return false;
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public State execute(State s) {
+		int[] tileLocations = s.getTileLocations();
+		int blankTileLocation = s.getBlankTileLocation();
+		if (direction == Direction.UP) {
+			if (blankTileLocation < 3) {
+				return null;
+			}
+			return new State(swap(tileLocations, blankTileLocation, blankTileLocation - 3));
+		}
+		if (direction == Direction.RIGHT) {
+			if (blankTileLocation + 1 % 3 == 0) {
+				return null;
+			}
+			return new State(swap(tileLocations, blankTileLocation, blankTileLocation + 1));
+		}
+		if (direction == Direction.DOWN) {
+			if (blankTileLocation > 5) {
+				return null;
+			}
+			return new State(swap(tileLocations, blankTileLocation, blankTileLocation + 3));
+		}
+		if (direction == Direction.LEFT) {
+			if (blankTileLocation % 3 == 0) {
+				return null;
+			}
+			return new State(swap(tileLocations, blankTileLocation, blankTileLocation - 1));
+		}
+		return null;
+	}
+	
+	/**
+	 * Swaps the tiles and returns a new tile locations array.
+	 * @param tileLocations the original tile locations.
+	 * @param i index i
+	 * @param j index j
+	 * @return a new tile locations array
+	 */
+	private int[] swap(int[] tileLocations, int i, int j) {
+		int helper = tileLocations[i];
+		tileLocations[i] = tileLocations[j];
+		tileLocations[j] = helper;
+		return tileLocations;
+	}
+	
+	public int getCost() {
+		return 1;
+	}
+	
+	private Direction direction;
+
+}
