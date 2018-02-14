@@ -1,0 +1,12 @@
+Some problems:
+- mutating to unacceptable states
+- breeding to unacceptable states
+- Slow string processing
+   - Changed to array of 1/0
+- Keeping track of total fitness value
+- Average and best fitness score not improving for new populations
+   - Selection process was not ideal
+   - Only select from top half of the population
+- Improved initial state
+- Mutate probability and population size
+- Some configurations work better for lower n (almost perfect) while some configurations work average for all n
