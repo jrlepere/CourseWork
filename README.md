@@ -6,9 +6,9 @@ Outline:
    - [N/A] -> No data in GitHub
 
 CPP Winter 2018
-- CS420: ArtificialIntelligence 
-- CS480: Software Engineering
-- CS535: Parallel and Distributed Algorithms [N/A]
+- CS420: ArtificialIntelligence (A) 
+- CS480: Software Engineering (A)
+- CS535: Parallel and Distributed Algorithms (A) [N/A]
 
 CPP Fall 2017
 - CS311: Formal Language and Automata (A) [N/A]
