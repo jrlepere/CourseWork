@@ -1,0 +1,36 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+/**
+ * A JPanel for the Calculator buttons.
+ * @author JLepere2
+ * @date 01/22/2018
+ */
+public class ButtonPanel extends JPanel {
+
+	private CalculatorUtility calcUtil;
+	
+	/**
+	 * Creates a ButtonPanel with a CalculatorUtility.
+	 * @param calculatorUtility the CalculatoryUtility object for performing arithmetic and updates to the frame
+	 */
+	public ButtonPanel(CalculatorUtility calculatorUtility) {
+		super(new BorderLayout());
+		this.calcUtil = calculatorUtility;
+		
+		JButton testButton = new JButton("TEST");
+		testButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				calcUtil.addCharacter("TEST");
+			}
+		});
+		
+		this.add(testButton, BorderLayout.CENTER);
+		
+	}
+	
+}

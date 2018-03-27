@@ -1,0 +1,23 @@
+import javax.swing.JFrame;
+
+/**
+ * The main class for the Calculator project.
+ * @author JLepere2
+ * @date 01/22/2018
+ */
+public class Calculator {
+
+	private static final int FRAME_WIDTH = 600;
+	private static final int FRAME_HEIGHT = 1000;
+	
+	/**
+	 * Runs the Calculator application.
+	 * @param args the command line arguments. Not used.
+	 */
+	public static void main(String[] args) {
+		
+		public JFrame calculatorFrame = new JFrame(FRAME_WIDTH, FRAME_HEIGHT);
+		
+	}
+	
+}

@@ -1,0 +1,49 @@
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+/**
+ * A JPanel for the Calculator buttons.
+ * @author JLepere2
+ * @date 01/22/2018
+ */
+public class ButtonPanel extends JPanel {
+
+	private static final long serialVersionUID = 15326521L;
+	public static final String ADD_CHAR = "+";
+	public static final String SUBTRACT_CHAR = "-";
+	public static final String MULTIPLY_CHAR = "*";
+	public static final String DIVIDE_CHAR = "/";
+	public static final String EQUALS_CHAR = "=";
+	
+	/**
+	 * Creates a ButtonPanel with a CalculatorUtility.
+	 * @param calculatorUtility the CalculatoryUtility object for performing arithmetic and updates to the frame
+	 */
+	public ButtonPanel(CalculatorUtility calculatorUtility) {
+		super();
+		
+		// Grid Layout
+		final int GRID_LAYOUT_ROWS = 4;
+		final int GRID_LAYOUT_COLUMNS = 4;
+		this.setLayout(new GridLayout(GRID_LAYOUT_ROWS, GRID_LAYOUT_COLUMNS));
+		
+		
+		// Buttons
+		String[] buttonChars = {"1","2","3",ADD_CHAR,"4","5","6",SUBTRACT_CHAR,"7","8","9",MULTIPLY_CHAR,".","0",EQUALS_CHAR,DIVIDE_CHAR};
+		for (int i = 0; i < buttonChars.length; i ++) {
+			JButton b = new JButton(buttonChars[i]);
+			b.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					calculatorUtility.addCharacter(b.getText());
+				}
+			});
+			this.add(b);
+		}
+		
+	}
+	
+}

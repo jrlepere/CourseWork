@@ -1,0 +1,32 @@
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+public class DisplayPanel extends JPanel {
+
+	public DisplayPanel(CalculatorUtility calcUtility) {
+		super(new BorderLayout());
+		
+		// Equation Panel
+		JPanel equationPanel = new JPanel(new GridLayout(1,3));
+		JLabel leftOperandLabel = new JLabel();
+		JLabel operatorLabel = new JLabel();
+		JLabel rightOperandLabel = new JLabel();
+		calcUtility.attachListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				leftOperandLabel.setText(calcUtility.getLeftOperand());
+				operatorLabel.setText(calcUtility.getOperator());
+				rightOperandLabel.setText(calcUtility.getRightOperand());
+				
+			}
+		});
+		
+	}
+	
+}

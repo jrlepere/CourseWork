@@ -1,0 +1,50 @@
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+/**
+ * The main class for the Calculator project.
+ * @author JLepere2
+ * @date 01/22/2018
+ */
+public class Calculator {
+
+	private static final String FRAME_TITLE = "Calculator";
+	private static final int FRAME_WIDTH = 600;
+	private static final int FRAME_HEIGHT = 1000;
+	
+	/**
+	 * Runs the Calculator application.
+	 * @param args the command line arguments. Not used.
+	 */
+	public static void main(String[] args) {
+		
+		// JFrame
+		JFrame calcFrame = new JFrame(FRAME_TITLE);
+		calcFrame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+		calcFrame.setLayout(new BorderLayout());
+		
+		// CalculatorUtility
+		CalculatorUtility calcUtility = new CalculatorUtility();
+		
+		// Display Label
+		JLabel displayLabel = new JLabel();
+		displayLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		calcUtility.attachListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+				displayLabel.setText(calcUtility.getDislayString());
+			}
+		});
+		
+		
+		// Show Frame
+		calcFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		calcFrame.setVisible(true);
+		
+	}
+	
+}

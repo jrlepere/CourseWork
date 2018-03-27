@@ -1,0 +1,16 @@
+/**
+ * The main class for the Calculator project.
+ * @author JLepere2
+ * @date 01/22/2018
+ */
+public class Calculator {
+
+	/**
+	 * Runs the Calculator application.
+	 * @param args the command line arguments. Not used.
+	 */
+	public static void main(String[] args) {
+		
+	}
+	
+}

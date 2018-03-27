@@ -1,0 +1,47 @@
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+/**
+ * The main class for the Calculator project.
+ * @author JLepere2
+ * @date 01/22/2018
+ */
+public class Calculator {
+
+	private static final String FRAME_TITLE = "Calculator";
+	private static final int FRAME_WIDTH = 400;
+	private static final int FRAME_HEIGHT = 600;
+	
+	/**
+	 * Runs the Calculator application.
+	 * @param args the command line arguments. Not used.
+	 */
+	public static void main(String[] args) {
+		
+		// JFrame
+		JFrame calcFrame = new JFrame(FRAME_TITLE);
+		calcFrame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+		calcFrame.setLayout(new BorderLayout());
+		
+		// CalculatorUtility
+		CalculatorUtility calcUtility = new CalculatorUtility();
+		
+		// Display Label
+		JPanel displayPanel = new DisplayPanel(calcUtility);
+		
+		// Button Panel
+		ButtonPanel buttonPanel = new ButtonPanel(calcUtility);
+		
+		// Set Frame Components
+		calcFrame.add(displayPanel, BorderLayout.NORTH);
+		calcFrame.add(buttonPanel, BorderLayout.CENTER);
+		
+		// Show Frame
+		calcFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		calcFrame.setVisible(true);
+		
+	}
+	
+}

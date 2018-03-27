@@ -1,0 +1,100 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+/**
+ * A utility class for storing local values and performing arithmetic on input
+ * @author JLepere2
+ * @date 01/22/2018
+ */
+public class CalculatorUtility {
+	
+	/**
+	 * Creates a CalculatorUtility object.
+	 */
+	public CalculatorUtility() {
+		listeners = new ArrayList<>();
+		leftOperand = "";
+		operator = "";
+		rightOperand = "";
+		state = 0;
+	}
+	
+	/**
+	 * Gets the left operand in the equation.
+	 * @return the left operand
+	 */
+	public String getLeftOperand() {
+		return leftOperand;
+	}
+	
+	/**
+	 * Gets the right operand in the equation.
+	 * @return the right operand
+	 */
+	public String getRightOperand() {
+		return rightOperand;
+	}
+	
+	/**
+	 * Gets the operator in the equation.
+	 * @return the operator
+	 */
+	public String getOperator() {
+		return operator;
+	}
+	
+	/**
+	 * Adds a character to the user input string.
+	 * @param c the character
+	 */
+	public void addCharacter(String c) {
+		if (state == 0) {
+			// Inputing to left operand. Waiting for operator.
+			if (ButtonPanel.getOperators().contains(c)) {
+				// Operator received.
+				operator = c;
+				state += 1;
+			} if (ButtonPanel.getNumbers().contains(c) || ButtonPanel.getPeriod().contains(c)) {
+				// Number character received.
+				leftOperand += c;
+			} else {
+				// ERROR
+			}
+		} else if (state == 1) {
+			// Operator received. Waiting for equals.
+			if (ButtonPanel.getOperators().contains(c)) {
+				// Operator received.
+				operator = c;
+				state += 1;
+			} if (ButtonPanel.getNumbers().contains(c) || ButtonPanel.getPeriod().equals(c)) {
+				// Number character received.
+				leftOperand += c;
+			} else {
+				// ERROR
+			}
+		}
+		// TODO: Calculate displayString (= or 2 operators)
+		for (ChangeListener l: listeners) {
+			l.stateChanged(new ChangeEvent(this));
+		}
+	}
+	
+	/**
+	 * Attaches a listener to the utility model.
+	 * @param listener the ChangeListener.
+	 */
+	public void attachListener(ChangeListener listener) {
+		listeners.add(listener);
+	}
+	
+	private static final List<String> operators = ButtonPanel.getOperators();
+	private ArrayList<ChangeListener> listeners;
+	private String leftOperand;
+	private String operator;
+	private String rightOperand;
+	private byte state;
+	
+}

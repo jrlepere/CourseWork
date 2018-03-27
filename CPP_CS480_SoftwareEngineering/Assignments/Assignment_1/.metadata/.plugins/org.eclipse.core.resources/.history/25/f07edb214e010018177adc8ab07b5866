@@ -1,0 +1,61 @@
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+/**
+ * A utility class for storing local values and performing arithmetic on input
+ * @author JLepere2
+ * @date 01/22/2018
+ */
+public class CalculatorUtility {
+	
+	/**
+	 * Creates a CalculatorUtility object.
+	 */
+	public CalculatorUtility() {
+		listeners = new ArrayList<>();
+		leftValue = "";
+		operator = "";
+		rightValue = "";
+	}
+	
+	/**
+	 * Gets the string to display on the screen.
+	 * @return the string to display.
+	 */
+	public String getDislayString() {
+		return displayString;
+	}
+	
+	/**
+	 * Adds a character to the user input string.
+	 * @param c the character
+	 */
+	public void addCharacter(String c) {
+		if (operators.contains(c)) {
+			// Operator
+			
+		}
+		// TODO: Calculate displayString (= or 2 operators)
+		for (ChangeListener l: listeners) {
+			l.stateChanged(new ChangeEvent(this));
+		}
+	}
+	
+	/**
+	 * Attaches a listener to the utility model.
+	 * @param listener the ChangeListener.
+	 */
+	public void attachListener(ChangeListener listener) {
+		listeners.add(listener);
+	}
+	
+	private static final List<String> operators = ButtonPanel.getOperators();
+	private ArrayList<ChangeListener> listeners;
+	private String leftValue;
+	private String operator;
+	private String rightValue;
+	
+}

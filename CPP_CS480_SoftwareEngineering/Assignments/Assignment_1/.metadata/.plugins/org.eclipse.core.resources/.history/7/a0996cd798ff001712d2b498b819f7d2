@@ -1,0 +1,14 @@
+import javax.swing.JPanel;
+
+/**
+ * A JPanel for the Calculator buttons.
+ * @author JLepere2
+ * @date 01/22/2018
+ */
+public class ButtonPanel extends JPanel {
+
+	public ButtonPanel(CalculatorUtility utility) {
+		super();
+	}
+	
+}

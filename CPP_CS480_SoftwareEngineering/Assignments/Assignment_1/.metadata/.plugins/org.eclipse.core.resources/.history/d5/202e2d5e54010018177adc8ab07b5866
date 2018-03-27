@@ -1,0 +1,22 @@
+/**
+ * An abstract class for performing arithmetic.
+ * @author JLepere2
+ * @date 01/22/2018
+ */
+public abstract class Arithmetic {
+
+	/**
+	 * Adds two doubles.
+	 * @param d1 the first double
+	 * @param d2 the second double
+	 * @return d1 + d2
+	 */
+	public static double Execute(String leftOperand, String operator, String rightOperand) {
+		if (operator.equals(ButtonPanel.ADD_OPERATOR)) {
+			
+		}
+	}
+	
+	// TODO: SUBTRACT, MULTIPLY, DIVIDE
+	
+}

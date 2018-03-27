@@ -1,0 +1,30 @@
+/**
+ * An abstract class for performing arithmetic.
+ * @author JLepere2
+ * @date 01/22/2018
+ */
+public abstract class Arithmetic {
+
+	/**
+	 * Adds two doubles.
+	 * @param d1 the first double
+	 * @param d2 the second double
+	 * @return d1 + d2
+	 */
+	public static String Execute(String leftOperand, String operator, String rightOperand) {
+		if (operator.equals(ButtonPanel.ADD_CHAR)) {
+			return Double.toString(Double.parseDouble(leftOperand) + Double.parseDouble(rightOperand));
+		} else if (operator.equals(ButtonPanel.SUBTRACT_CHAR)) {
+			return Double.toString(Double.parseDouble(leftOperand) - Double.parseDouble(rightOperand));
+		} else if (operator.equals(ButtonPanel.MULTIPLY_CHAR)) {
+			return Double.toString(Double.parseDouble(leftOperand) * Double.parseDouble(rightOperand));
+		} else if (operator.equals(ButtonPanel.DIVIDE_CHAR)) {
+			return Double.toString(Double.parseDouble(leftOperand) / Double.parseDouble(rightOperand));
+		} else {
+			return "";
+		}
+	}
+	
+	// TODO: SUBTRACT, MULTIPLY, DIVIDE
+	
+}
